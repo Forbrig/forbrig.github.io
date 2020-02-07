@@ -1,0 +1,11 @@
+html { font-family: 'Roboto', sans-serif; }
+
+html, body, #root {
+    height: 100%;
+}
+
+body {
+    background: radial-gradient(ellipse at bottom, #1B2735 20%, #090A0F 100%);
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
