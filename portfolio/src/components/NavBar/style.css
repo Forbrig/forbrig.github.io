@@ -1,0 +1,16 @@
+#navbar {
+    background: transparent;
+    box-shadow: none;
+}
+
+#navbar-links {
+    margin: auto;
+}
+
+#navbar-links button {
+    margin: 0px 15px;
+}
+
+.MuiTabs-indicator {
+    color: white;
+}
