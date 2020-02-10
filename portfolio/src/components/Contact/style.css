@@ -1,0 +1,47 @@
+#contact {
+    margin-top: 160px;
+    display: flex;
+    justify-content: center;
+}
+
+.name-field {
+	grid-area: name-field;
+}
+
+.email-field {
+	grid-area: email-field;
+}
+
+.text-field {
+	grid-area: text-field;
+}
+
+#media-field {
+    display: flex;
+    justify-content: center;
+	grid-area: media-field;
+}
+
+#contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+		"name-field email-field"
+        "text-field text-field"
+        "media-field media-field";
+    width: 600px;
+    grid-gap: 20px;
+}
+
+#contact fieldset {
+    color: white;
+    border-color: white;
+}
+
+#contact label, #contact input, #contact textarea, #contact .MuiInputAdornment-root, #contact .MuiIconButton-root {
+    color: white;
+}
+
+#media-field .MuiSvgIcon-root {
+    font-size: 35px;
+}

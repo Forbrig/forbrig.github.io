@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { AppBar, Tabs, Tab, Typography, Box, makeStyles } from '@material-ui/core/';
 
+import Home from '../Home';
+import Contact from '../Contact';
+
 import './style.css';
 
 function TabPanel(props) {
@@ -42,8 +45,7 @@ function a11yProps(index) {
 }
 
 function NavBar() {
-    const classes = useStyles();
-    const [value, setValue] = React.useState('one');
+    const [value, setValue] = React.useState('Home');
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -61,14 +63,7 @@ function NavBar() {
                 </Tabs>
             </AppBar>
             <TabPanel value={value} index="Home">
-                <div id="Home">
-                    <div class="presentation">
-                        <h1>I am Vitor Forbrig</h1>
-                    </div>
-                    <div id="portrait">
-                        <img alt="" width="80" height="80" src="https://avatars2.githubusercontent.com/u/11168606?s=460&amp;v=4"></img>
-                    </div>
-                </div>
+                <Home></Home>
             </TabPanel>
             <TabPanel value={value} index="About">
                 Item Two
@@ -80,7 +75,7 @@ function NavBar() {
                 Item Three
             </TabPanel>
             <TabPanel value={value} index="Contact">
-                Item Three
+                <Contact></Contact>
             </TabPanel>
         </div>
     );

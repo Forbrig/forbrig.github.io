@@ -12,5 +12,6 @@
 }
 
 .MuiTabs-indicator {
+    background-color: white;
     color: white;
 }
