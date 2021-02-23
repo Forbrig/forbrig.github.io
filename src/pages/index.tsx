@@ -9,8 +9,14 @@ import { faGithub, faStackOverflow, faLinkedin, faSteam, faInstagram } from '@fo
 
 export default function Home() {
   const [flip, setFlip] = useState(false);
+  const [init, setInit] = useState(true);
   function flipCard() {
     setFlip(!flip);
+    changeInit();
+  }
+
+  function changeInit() {
+    setInit(false);
   }
 
   return (
@@ -47,7 +53,7 @@ export default function Home() {
         </div>
         
         {/* backcard */}
-        <div className={`${styles.card} ${styles.backcard} ${flip ? styles.cardflipback + ' ' + styles.dalayedtransition : ''}`}>
+        <div className={`${styles.card} ${styles.backcard} ${flip ? styles.cardflipback + ' ' + styles.dalayedtransition : ''} ${init ? styles.init : ''}`}>
           <h2 className={styles.headline}>I Develop & other stuff</h2>
 
           <img
