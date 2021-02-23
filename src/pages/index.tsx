@@ -1,12 +1,18 @@
 import Head from 'next/head'
+import React, { useState } from 'react';
 // import Image from 'next/image'
 import styles from '../styles/Home.module.scss'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { faGithub, faStackOverflow, faLinkedin, faSteam, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 export default function Home() {
+  const [flip, setFlip] = useState(false);
+  function flipCard() {
+    setFlip(!flip);
+  }
+
   return (
     <div className={styles.container}>
       <Head>
@@ -15,7 +21,9 @@ export default function Home() {
       </Head>
 
       <main className={styles.container}>
-        <div className={styles.card}>
+        {/* frontcard */}
+
+        <div className={`${styles.card} ${flip ? styles.cardflipfront : styles.dalayedtransition}`}>
           <h2 className={styles.headline}>I Develop & other stuff</h2>
           <h1 className={styles.name}>Vitor Forbrig</h1>
           <div className={styles.medias}>
@@ -35,14 +43,22 @@ export default function Home() {
               <FontAwesomeIcon className={styles.media} icon={faSteam} />
             </a>
           </div>
-          <FontAwesomeIcon className={styles.nextarrow} icon={faArrowRight} />
-          {/* <h3>Backend, Frontend</h3> */}
-          {/* <img
+          <FontAwesomeIcon onClick={flipCard} className={`${styles.arrow} ${styles.nextarrow}`} icon={faArrowRight} />
+        </div>
+        
+        {/* backcard */}
+        <div className={`${styles.card} ${styles.backcard} ${flip ? styles.cardflipback + ' ' + styles.dalayedtransition : ''}`}>
+          <h2 className={styles.headline}>I Develop & other stuff</h2>
+
+          <img
             src="/doggy.png"
             className={styles['profile-image']}
             alt="Picture of the author"
-          /> */}
+          />
+          
+          <FontAwesomeIcon onClick={flipCard} className={`${styles.arrow} ${styles.prevarrow}`} icon={faArrowLeft} />
         </div>
+
         <div className={styles.footer}>v1.0</div>
       </main>
     </div>

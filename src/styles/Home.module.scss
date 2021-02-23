@@ -5,27 +5,46 @@
 }
 
 .card {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  position: relative;
   width: 1024px;
   height: 600px;
-  margin: auto;
   padding: 0 100px;
   background: linear-gradient(140deg, #272f32 0%,  #040404 100%);
   border: 1px solid #353c3e;
   border-radius: 10px;
   box-shadow: 10px 10px 10px 10px #000000;
-
-  /* position: relative; */
   transform-style: preserve-3d;
   transition: all 1s ease-in-out;
+}
 
-  &:hover {
-    // background: linear-gradient(-140deg, #272f32 0%,  #040404 100%);
-    // transform: rotateY(90deg);
-  }
+.frontcard {
+  display: block;
+}
+
+.backcard {
+  transform: rotateY(-90deg);
+}
+
+.dalayedtransition {
+  transition-delay: 1s;
+}
+
+.cardflipfront {
+  transform: rotateY(90deg);
+}
+
+.cardflipback {
+  transform: rotateY(0deg);
 }
 
 .headline {
@@ -66,23 +85,31 @@
   filter: brightness(.8);
   position: absolute;
   bottom: 1px;
-  right: 150px;
+  right: 375px;
   height: 500px;
   width: auto;
 }
 
-.nextarrow {
+.arrow {
   color: #333739;
   font-size: 40px;
   position: absolute;
-  bottom: 50px;
-  right: 50px;
   cursor: pointer;
   transition: all 1s ease-in-out;
 
   &:hover {
     transform: scale(1.2);
   }
+}
+
+.nextarrow {
+  bottom: 50px;
+  right: 50px;
+}
+
+.prevarrow {
+  bottom: 50px;
+  left: 50px;
 }
 
 .footer {
