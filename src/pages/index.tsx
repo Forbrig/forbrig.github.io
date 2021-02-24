@@ -1,15 +1,39 @@
-import Head from 'next/head'
+import Head from 'next/head';
 import React, { useState } from 'react';
 // import Image from 'next/image'
-import styles from '../styles/Home.module.scss'
+import styles from '../styles/Home.module.scss';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import Highlight from 'react-highlight';
+import '../../node_modules/highlight.js/styles/dracula.css';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faStackOverflow, faLinkedin, faSteam, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 export default function Home() {
   const [flip, setFlip] = useState(false);
   const [init, setInit] = useState(true);
+  var code = `function socialMedias(media) {
+    switch(media) {
+      case 'github':
+        window.location.replace("https://github.com/Forbrig");
+        break;
+      case 'stackoverflow':
+        window.location.replace("https://stackoverflow.com/users/8692530/forbrig");
+        break;
+      case 'linkedin':
+        window.location.replace("https://www.linkedin.com/in/forbrig/");
+        break;
+      case 'instagram':
+        window.location.replace("https://www.instagram.com/vitorforbrig/");
+        break;
+      case 'steam':
+        window.location.replace("https://steamcommunity.com/id/anonyclick");
+        break;
+      default:
+        window.location.replace("https://forbrig.netlify.app/");
+    }
+  }`
   function flipCard() {
     setFlip(!flip);
     changeInit();
@@ -31,23 +55,36 @@ export default function Home() {
 
         <div className={`${styles.card} ${flip ? styles.cardflipfront : styles.dalayedtransition}`}>
           <h2 className={styles.headline}>I Develop & other stuff</h2>
-          <h1 className={styles.name}>Vitor Forbrig</h1>
-          <div className={styles.medias}>
-            <a href="https://github.com/Forbrig" target="blank">
-              <FontAwesomeIcon className={styles.media} icon={faGithub} />
-            </a>
-            <a href="https://stackoverflow.com/users/8692530/forbrig" target="blank">
-              <FontAwesomeIcon className={styles.media} icon={faStackOverflow} />
-            </a>
-            <a href="https://www.linkedin.com/in/forbrig/" target="blank">
-              <FontAwesomeIcon className={styles.media} icon={faLinkedin} />
-            </a>
-            <a href="https://www.instagram.com/vitorforbrig/" target="blank">
-              <FontAwesomeIcon className={styles.media} icon={faInstagram} />
-            </a>
-            <a href="https://steamcommunity.com/id/anonyclick" target="blank">
-              <FontAwesomeIcon className={styles.media} icon={faSteam} />
-            </a>
+          <div className={styles.content}>
+            <div className={styles.side}>
+              <h1 className={styles.name}>Vitor Forbrig</h1>
+              <div className={styles.medias}>
+                <a href="https://github.com/Forbrig" target="blank">
+                  <FontAwesomeIcon className={styles.media} icon={faGithub} />
+                </a>
+                <a href="https://stackoverflow.com/users/8692530/forbrig" target="blank">
+                  <FontAwesomeIcon className={styles.media} icon={faStackOverflow} />
+                </a>
+                <a href="https://www.linkedin.com/in/forbrig/" target="blank">
+                  <FontAwesomeIcon className={styles.media} icon={faLinkedin} />
+                </a>
+                <a href="https://www.instagram.com/vitorforbrig/" target="blank">
+                  <FontAwesomeIcon className={styles.media} icon={faInstagram} />
+                </a>
+                <a href="https://steamcommunity.com/id/anonyclick" target="blank">
+                  <FontAwesomeIcon className={styles.media} icon={faSteam} />
+                </a>
+              </div>
+            </div>
+            {/* <div className={styles.side}>
+              <div className={styles.sidea}>
+                <img
+                  src="/keyboard.svg"
+                  className={styles['card-logo']}
+                  alt="Card logo"
+                />
+              </div>
+            </div> */}
           </div>
           <FontAwesomeIcon onClick={flipCard} className={`${styles.arrow} ${styles.nextarrow}`} icon={faArrowRight} />
         </div>
@@ -55,6 +92,12 @@ export default function Home() {
         {/* backcard */}
         <div className={`${styles.card} ${styles.backcard} ${flip ? styles.cardflipback + ' ' + styles.dalayedtransition : ''} ${init ? styles.init : ''}`}>
           <h2 className={styles.headline}>I Develop & other stuff</h2>
+
+          <div className={styles.code}>
+            <Highlight language="javascript">
+              {code}
+            </Highlight>
+          </div>
 
           <img
             src="/doggy.png"

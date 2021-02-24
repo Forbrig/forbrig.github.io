@@ -18,8 +18,9 @@
   align-items: stretch;
   width: 1024px;
   height: 600px;
-  padding: 0 100px;
-  background: linear-gradient(140deg, #272f32 0%,  #040404 100%);
+  padding: 0 50px;
+  // background: linear-gradient(140deg, #272f32 0%,  #040404 100%);
+  background: linear-gradient(140deg,#ffffff,#9b9b9b);
   border: 1px solid #353c3e;
   border-radius: 10px;
   box-shadow: 10px 10px 10px 10px #000000;
@@ -59,10 +60,12 @@
 }
 
 .name {
+  font-family: 'Ubuntu';
   font-weight: 900;
   text-align: center;
-  padding-top: 90px;
-  font-size: 80px;
+  margin-top: 0px;
+  // width: 600px;
+  font-size: 70px;
   text-transform: uppercase;
   color: #ffffff;
   margin-bottom: 0px;
@@ -82,6 +85,42 @@
   &:hover {
     transform: scale(1.4);
   }
+}
+
+.code {
+  font-size: 15px;
+  text-align: left;
+}
+
+.hljs {
+  background: none !important;
+}
+
+.content {
+  display: flex;
+  width: 100%;
+  flex: 1;
+}
+
+.side {
+  position: relative;
+  flex: 1;
+  align-self: center;
+  // border: 2px solid yellow;
+}
+
+.sidea {
+  overflow: hidden;
+
+}
+
+.card-logo {
+  position: absolute;
+  top: -600px;
+  right: -200px;
+  height: 800px;
+  width: auto;
+  transform: rotate(30deg);
 }
 
 .profile-image {
