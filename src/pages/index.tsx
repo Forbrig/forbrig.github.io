@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import styles from '../styles/Home.module.scss';
 
 import Highlight from 'react-highlight';
-import '../../node_modules/highlight.js/styles/my-theme.css';
+// import '../../node_modules/highlight.js/styles/my-theme.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
@@ -49,27 +49,27 @@ function socialMedias(media) {
   }
 }`
 
-  var code1 = `function socialMedias(media) {
-    switch(media) {
-      case 'github':
-        window.location.replace("https://github.com/Forbrig");
-        break;
-      case 'stackoverflow':
-        window.location.replace("https://stackoverflow.com/users/8692530/forbrig");
-        break;
-      case 'linkedin':
-        window.location.replace("https://www.linkedin.com/in/forbrig");
-        break;
-      case 'instagram':
-        window.location.replace("https://www.instagram.com/vitorforbrig");
-        break;
-      case 'steam':
-        window.location.replace("https://steamcommunity.com/id/anonyclick");
-        break;
-      default:
-        window.location.replace("https://forbrig.netlify.app");
-    }
-  }`;
+  // var code1 = `function socialMedias(media) {
+  //   switch(media) {
+  //     case 'github':
+  //       window.location.replace("https://github.com/Forbrig");
+  //       break;
+  //     case 'stackoverflow':
+  //       window.location.replace("https://stackoverflow.com/users/8692530/forbrig");
+  //       break;
+  //     case 'linkedin':
+  //       window.location.replace("https://www.linkedin.com/in/forbrig");
+  //       break;
+  //     case 'instagram':
+  //       window.location.replace("https://www.instagram.com/vitorforbrig");
+  //       break;
+  //     case 'steam':
+  //       window.location.replace("https://steamcommunity.com/id/anonyclick");
+  //       break;
+  //     default:
+  //       window.location.replace("https://forbrig.netlify.app");
+  //   }
+  // }`;
 
   function flipCard() {
     setFlip(!flip);
@@ -88,8 +88,8 @@ function socialMedias(media) {
       </Head>
 
       <main className={styles.container}>
+        
         {/* frontcard */}
-
         <div className={`${styles.card} ${flip ? styles.cardflipfront : styles.dalayedtransition}`}>
           <h2 className={styles.headline}>I Develop & other stuff</h2>
           <div className={styles.content}>
