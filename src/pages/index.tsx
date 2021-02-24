@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import styles from '../styles/Home.module.scss';
 
 import Highlight from 'react-highlight';
-import '../../node_modules/highlight.js/styles/dracula.css';
+import '../../node_modules/highlight.js/styles/my-theme.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
@@ -13,7 +13,43 @@ import { faGithub, faStackOverflow, faLinkedin, faSteam, faInstagram } from '@fo
 export default function Home() {
   const [flip, setFlip] = useState(false);
   const [init, setInit] = useState(true);
-  var code = `function socialMedias(media) {
+
+  var code = `// find me on the internet
+function socialMedias(media) {
+  switch(media) {
+    case 'github':
+      window.location.replace("`;
+
+  var code2 = `");
+      break;
+    case 'stackoverflow':
+      window.location.replace("`;
+
+  var code3 = `");
+      break;
+    case 'linkedin':
+      window.location.replace("`;
+  
+  var code4 = `");
+      break;
+    case 'instagram':
+      window.location.replace("`;
+  
+  var code5 = `");
+      break;
+    case 'steam':
+      window.location.replace("`;
+  
+  var code6 = `");
+      break;
+    default:
+      window.location.replace("`;
+  
+  var code7 = `");
+  }
+}`
+
+  var code1 = `function socialMedias(media) {
     switch(media) {
       case 'github':
         window.location.replace("https://github.com/Forbrig");
@@ -22,18 +58,19 @@ export default function Home() {
         window.location.replace("https://stackoverflow.com/users/8692530/forbrig");
         break;
       case 'linkedin':
-        window.location.replace("https://www.linkedin.com/in/forbrig/");
+        window.location.replace("https://www.linkedin.com/in/forbrig");
         break;
       case 'instagram':
-        window.location.replace("https://www.instagram.com/vitorforbrig/");
+        window.location.replace("https://www.instagram.com/vitorforbrig");
         break;
       case 'steam':
         window.location.replace("https://steamcommunity.com/id/anonyclick");
         break;
       default:
-        window.location.replace("https://forbrig.netlify.app/");
+        window.location.replace("https://forbrig.netlify.app");
     }
-  }`
+  }`;
+
   function flipCard() {
     setFlip(!flip);
     changeInit();
@@ -96,14 +133,26 @@ export default function Home() {
           <div className={styles.code}>
             <Highlight language="javascript">
               {code}
+                <a href="https://github.com/Forbrig" target="blank">https://github.com/Forbrig</a>
+              {code2}
+                <a href="https://stackoverflow.com/users/8692530/forbrig" target="blank">https://stackoverflow.com/users/8692530/forbrig</a>
+              {code3}
+                <a href="https://www.linkedin.com/in/forbrig" target="blank">https://www.linkedin.com/in/forbrig</a>
+              {code4}
+                <a href="https://www.instagram.com/vitorforbrig" target="blank">https://www.instagram.com/vitorforbrig</a>
+              {code5}
+                <a href="https://steamcommunity.com/id/anonyclick" target="blank">https://steamcommunity.com/id/anonyclick</a>
+              {code6}
+                <a href="https://forbrig.netlify.app" target="blank">https://forbrig.netlify.app/</a>
+              {code7}
             </Highlight>
           </div>
 
-          <img
+          {/* <img
             src="/doggy.png"
             className={styles['profile-image']}
             alt="Picture of the author"
-          />
+          /> */}
           
           <FontAwesomeIcon onClick={flipCard} className={`${styles.arrow} ${styles.prevarrow}`} icon={faArrowLeft} />
         </div>
