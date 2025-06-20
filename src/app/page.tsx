@@ -2,13 +2,16 @@
 
 import Image from "next/image";
 
-import { FaLinkedin, FaGithub } from "react-icons/fa";
+import { Footer } from "./components/footer";
+import { Header } from "./components/header";
 
 import styles from "./page.module.scss";
 
 export default function Home() {
   return (
     <div className={styles.page}>
+      <Header />
+
       <main className={styles.main}>
         <div className={styles.content}>
           <p className={styles.greeting}>Hi, I&apos;m</p>
@@ -32,25 +35,7 @@ export default function Home() {
           />
         </div>
       </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://github.com/Forbrig"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="GitHub"
-        >
-          <FaGithub size={30} />
-        </a>
-        <a
-          href="https://www.linkedin.com/in/forbrig/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LinkedIn"
-        >
-          <FaLinkedin size={30} />
-        </a>
-      </footer>
+      <Footer />
     </div>
   );
 }

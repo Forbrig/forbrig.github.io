@@ -1,0 +1,37 @@
+.header {
+  width: 100%;
+  padding: 1.2rem 0 0.5rem 0;
+  background: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .nav {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+
+    .tab {
+      color: #333;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 500;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      transition: background 0.15s, color 0.15s;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+
+      &:hover,
+      &:focus {
+        background: #333;
+        color: #fff;
+      }
+
+      &[data-active="true"] {
+        background: #333;
+        color: #fff;
+      }
+    }
+  }
+}
