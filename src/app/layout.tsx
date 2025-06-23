@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
+import { ThemeProvider } from "@/context/ThemeProvider";
 
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 
-import "./globals.css";
+import "./globals.scss";
 import styles from "./layout.module.scss";
 
 export const metadata: Metadata = {
@@ -19,11 +20,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={styles.page}>
-        <Header />
+        <ThemeProvider>
+          <Header />
 
-        <main className={styles.main}>{children}</main>
+          <main className={styles.main}>{children}</main>
 
-        <Footer />
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
