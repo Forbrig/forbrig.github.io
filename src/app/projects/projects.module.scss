@@ -14,16 +14,9 @@
   }
 
   .projects-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-
-    @media (max-width: 768px) {
-      grid-template-columns: 1fr;
-    }
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 
     .project {
       display: flex;
@@ -59,17 +52,11 @@
         margin-top: 0.5rem;
       }
 
-      .metadata {
+      .technologies {
         display: flex;
         flex-wrap: wrap;
         gap: 0.5rem;
         margin-top: 0.5rem;
-
-        .technology {
-          margin-top: 0.5rem;
-          display: flex;
-          gap: 0.2rem;
-        }
       }
     }
   }

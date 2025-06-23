@@ -1,16 +1,24 @@
 .header {
-  width: 100%;
-  padding: 1.2rem 0 0.5rem 0;
-  background: none;
   display: flex;
+  position: fixed;
+  width: 100%;
+  padding: 1rem 1rem;
   justify-content: center;
   align-items: center;
+  background-color: var(--background);
+  border-bottom: 1px solid var(--background-card-secondary);
+  z-index: 2;
+  height: var(--header-height, 4rem);
 
   .nav {
     display: flex;
     justify-content: center;
     gap: 1.5rem;
     position: relative;
+
+    @media screen and (max-width: 768px) {
+      gap: 0.5rem;
+    }
 
     .tab {
       color: var(--text-secondary);
@@ -23,6 +31,10 @@
       letter-spacing: 0.5px;
       cursor: pointer;
 
+      @media screen and (max-width: 768px) {
+        padding: 0.4rem 0.5rem;
+      }
+
       &:hover,
       &:focus,
       &[data-active="true"] {
@@ -33,20 +45,25 @@
   }
 
   .theme-toggle {
+    display: flex;
+    position: absolute;
+
     background: none;
     border: none;
 
-    display: flex;
-    position: absolute;
     right: 0;
     margin-right: 20px;
 
     align-items: center;
     cursor: pointer;
-    padding: 1rem;
+    padding: 0.5rem;
     border-radius: 50%;
 
     color: var(--text);
+
+    @media screen and (max-width: 768px) {
+      margin-right: 5px;
+    }
 
     &:hover {
       transform: rotate(360deg);

@@ -1,5 +1,6 @@
 import { FC } from "react";
 
+import { Tag } from "../tag";
 import { FaCalendar, FaExternalLinkAlt } from "react-icons/fa";
 
 import styles from "./timeline.module.scss";
@@ -54,9 +55,7 @@ export const Timeline: FC<TimelineProps> = ({ experiences }) => {
 
             <div className={styles.technologies}>
               {experience.technologies.map((tech, index) => (
-                <span key={index} className={styles.technology}>
-                  {tech}
-                </span>
+                <Tag key={index}>{tech}</Tag>
               ))}
             </div>
           </div>

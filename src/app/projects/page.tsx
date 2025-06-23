@@ -1,9 +1,10 @@
 "use client";
 
-import { FaGithub } from "react-icons/fa";
-
 import { useGithubProjects } from "@/hooks/useGithubProjects";
 import { getLanguageIcon } from "@/components/languageIcons";
+
+import { FaGithub } from "react-icons/fa";
+import { Tag } from "@/components/tag";
 
 import styles from "./projects.module.scss";
 
@@ -31,11 +32,15 @@ export default function ProjectsPage() {
                   <FaGithub size={24} />
                 </a>
               </div>
+
               <p className={styles.description}>{project.description}</p>
-              <div className={styles.metadata}>
-                <span className={styles.technology}>
-                  {project.topics.map((topic) => getLanguageIcon(topic))}
-                </span>
+
+              <div className={styles.technologies}>
+                {project.topics.map((topic) => (
+                  <Tag key={topic}>
+                    {getLanguageIcon(topic)} {topic}
+                  </Tag>
+                ))}
               </div>
             </li>
           ))}
