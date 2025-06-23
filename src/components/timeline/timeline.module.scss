@@ -1,0 +1,83 @@
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  .experience {
+    position: relative;
+    display: flex;
+    gap: 1rem;
+
+    // .marker {
+    //   display: block;
+    //   position: relative;
+    //   z-index: 10;
+    //   width: 3rem;
+    //   height: 3rem;
+    //   background: transparent;
+    //   border: 4px solid #333;
+    //   border-radius: 50%;
+    // }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 1rem;
+      border-radius: 8px;
+      background-color: var(--background-card);
+      color: var(--text);
+      flex: 1;
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        align-items: center;
+        gap: 1rem;
+
+        .title-and-company {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+
+          .title {
+            font-size: 1.5rem;
+            font-weight: 600;
+          }
+
+          .company {
+            font-weight: 500;
+          }
+        }
+
+        .date {
+          display: flex;
+          gap: 0.5rem;
+          color: #888;
+        }
+      }
+
+      .description {
+        font-size: 1rem;
+        color: var(--text-secondary);
+        line-height: 1.5;
+      }
+
+      .technologies {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+
+        .technology {
+          padding: 0.25rem 0.5rem;
+          background-color: var(--background-card-secondary);
+          border-radius: 4px;
+          font-size: 0.875rem;
+          color: var(--text);
+        }
+      }
+    }
+  }
+}

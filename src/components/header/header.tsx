@@ -20,6 +20,13 @@ export const Header = () => {
           Home
         </Link>
         <Link
+          href="/experiences"
+          className={styles.tab}
+          data-active={pathname === "/experiences"}
+        >
+          Experiences
+        </Link>
+        <Link
           href="/projects"
           className={styles.tab}
           data-active={pathname === "/projects"}

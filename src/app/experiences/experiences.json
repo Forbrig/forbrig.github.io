@@ -1,0 +1,97 @@
+[
+  {
+    "id": "bitovi-2021",
+    "title": "Frontend Engineer",
+    "company": "Bitovi",
+    "date": "Oct 2021 - Present",
+    "technologies": ["TypeScript", "React", "Next.js", "GraphQL"],
+    "description": "Currently leading one of the WEB teams on the client side as a senior engineer. Worked on developing the Staffing App, an internal tool for managing company assets. Acted as a Senior Frontend Consultant for a major client, integrating into their front-end team, maintaining the website, developing new features, and focusing primarily on SDK development — a middleware used for data consumption for both WEB and APP.",
+    "links": [
+      {
+        "label": "Bitovi",
+        "url": "https://www.bitovi.com/"
+      }
+    ]
+  },
+  {
+    "id": "mijem-2021",
+    "title": "Frontend Developer",
+    "company": "Mijem Inc.",
+    "date": "Aug 2021 - Oct 2021",
+    "technologies": ["TypeScript", "React", "HTML", "CSS"],
+    "description": "Worked on the kick-off of the front-end development of the new website. Contributed to delivering the MVP under a very strict schedule.",
+    "links": [
+      {
+        "label": "Mijem",
+        "url": "https://www.mijem.com/"
+      }
+    ]
+  },
+  {
+    "id": "connectabil-2021",
+    "title": "Frontend Developer",
+    "company": "Connectabil",
+    "date": "Apr 2021 - Sep 2021",
+    "technologies": ["TypeScript", "React", "Styled Components", "REST"],
+    "description": "Accepted the challenge to produce the front end of a new HR portal project in a short timeframe. Gained valuable experience working with new tools and collaborating with talented professionals from across Brazil.",
+    "links": [
+      {
+        "label": "Connectabil",
+        "url": "https://www.connectabil.com/"
+      }
+    ]
+  },
+  {
+    "id": "nando-moura-2021",
+    "title": "Web Developer",
+    "company": "Cursos Nando Moura",
+    "date": "Apr 2021 - May 2021",
+    "technologies": ["TypeScript", "Next.js"],
+    "description": "Developed a high-traffic website for selling online courses, optimized to handle thousands of simultaneous users driven by online campaigns.",
+    "links": []
+  },
+  {
+    "id": "plen-robotics-2020",
+    "title": "Software Developer",
+    "company": "PLEN Robotics",
+    "date": "Apr 2020 - Apr 2021",
+    "technologies": ["JavaScript", "Vue.js", "Node.js", "Python", "IoT"],
+    "description": "First remote work experience — from across the globe. Grateful for the opportunity to work with a Japanese team and learn about their culture. Contributed to software development in robotics-focused projects.",
+    "links": [
+      {
+        "label": "PLEN Robotics",
+        "url": "https://plenrobotics.com/"
+      }
+    ]
+  },
+  {
+    "id": "amplimed-2018",
+    "title": "Fullstack Engineer",
+    "company": "Amplimed",
+    "date": "Dec 2018 - Mar 2020",
+    "technologies": [
+      "JavaScript",
+      "PHP",
+      "JQuery",
+      "PostgreSQL",
+      "MongoDB",
+      "REST"
+    ],
+    "description": "First job in software development. Incredible startup experience where I worked closely with real-world problems and contributed to building solutions across both frontend and backend.",
+    "links": [
+      {
+        "label": "Amplimed",
+        "url": "https://amplimed.com.br/"
+      }
+    ]
+  },
+  {
+    "id": "xande-informatica-2013",
+    "title": "Technical Support",
+    "company": "Xande Informática",
+    "date": "Feb 2013 - Nov 2013",
+    "technologies": ["Hardware", "Windows OS", "Customer Service"],
+    "description": "My first formal job. Provided technical support for computer hardware and software. Responsibilities included assembly, installation, troubleshooting, and direct customer service.",
+    "links": []
+  }
+]

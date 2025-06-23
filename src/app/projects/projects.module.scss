@@ -31,7 +31,7 @@
       gap: 0.5rem;
       padding: 1rem;
       border-radius: 8px;
-      background-color: #333;
+      background-color: var(--background-card);
 
       .header {
         display: flex;
@@ -55,7 +55,7 @@
 
       .description {
         font-size: 1rem;
-        color: #666;
+        color: var(--text-secondary);
         margin-top: 0.5rem;
       }
 

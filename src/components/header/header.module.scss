@@ -13,7 +13,7 @@
     position: relative;
 
     .tab {
-      color: #333;
+      color: var(--text-secondary);
       text-decoration: none;
       font-size: 1.2rem;
       font-weight: 500;
@@ -24,14 +24,10 @@
       cursor: pointer;
 
       &:hover,
-      &:focus {
-        background: #333;
-        color: #fff;
-      }
-
+      &:focus,
       &[data-active="true"] {
-        background: #333;
-        color: #fff;
+        background: var(--background-card-secondary);
+        color: var(--text-s);
       }
     }
   }
