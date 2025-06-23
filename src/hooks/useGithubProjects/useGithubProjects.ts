@@ -29,7 +29,7 @@ export const useGithubProjects = () => {
           "https://api.github.com/users/forbrig/repos?per_page=100&sort=updated"
         );
         const repos: Project[] = await response.json();
-        // console.log("Fetched GitHub repos:", repos);
+        console.log("Fetched GitHub repos:", repos);
         const filtered = repos
           .filter((repo) => allowedRepos.includes(repo.name.toLowerCase()))
           .map((repo) => ({

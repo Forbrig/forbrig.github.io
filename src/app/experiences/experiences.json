@@ -47,8 +47,20 @@
     "company": "Cursos Nando Moura",
     "date": "Apr 2021 - May 2021",
     "technologies": ["TypeScript", "Next.js"],
-    "description": "Developed a high-traffic website for selling online courses, optimized to handle thousands of simultaneous users driven by online campaigns.",
-    "links": []
+    "description": "Developed high-traffic websites for selling online courses, optimized to handle thousands of simultaneous users driven by online campaigns.",
+    "links": [],
+    "images": [
+      {
+        "src": "/cursos-nando-moura/maestros-do-musicalismo.png",
+        "alt": "Mestres do Musicalismo",
+        "description": "Maestros do Musicalismo is a high-traffic landing page designed to sell online music courses."
+      },
+      {
+        "src": "/cursos-nando-moura/idiomas.png",
+        "alt": "Idiomas",
+        "description": "Idiomas is a high-traffic landing page for selling online language courses."
+      }
+    ]
   },
   {
     "id": "plen-robotics-2020",
@@ -61,6 +73,23 @@
       {
         "label": "PLEN Robotics",
         "url": "https://plenrobotics.com/"
+      }
+    ],
+    "images": [
+      {
+        "src": "/plen-robotics/plen-robot.png",
+        "alt": "Plen Robot with a termal sensor",
+        "description": "Plen Robot with a termal sensor addon. Used for measuring body temperature in multiple applications."
+      },
+      {
+        "src": "/plen-robotics/plen-robot-iot.gif",
+        "alt": "Plen Robot face recognizion",
+        "description": "Plen Robot using face recognizion and opening a lock with IoT."
+      },
+      {
+        "src": "/plen-robotics/booster.png",
+        "alt": "Booster data flow",
+        "description": "Booster, a system to automatically book medic consults via the PLEN Cube."
       }
     ]
   },
