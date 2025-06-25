@@ -55,6 +55,7 @@ export const Experience: FC<ExperienceProps> = ({ experience }) => {
             <FaCalendar /> {experience.date}
           </p>
         </div>
+
         <p className={styles.description}>{experience.description}</p>
 
         {experience.images && experience.images.length > 0 && (

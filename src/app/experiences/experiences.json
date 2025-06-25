@@ -19,7 +19,7 @@
     "company": "Mijem Inc.",
     "date": "Aug 2021 - Oct 2021",
     "technologies": ["TypeScript", "React", "HTML", "CSS"],
-    "description": "Worked on the kick-off of the front-end development of the new website. Contributed to delivering the MVP under a very strict schedule.",
+    "description": "A craiglist for students, Mijem is a platform for buying and selling used items. Worked on the kick-off of the front-end development of the new website. Contributed to delivering the MVP under a very strict schedule.",
     "links": [
       {
         "label": "Mijem",
@@ -33,7 +33,7 @@
     "company": "Connectabil",
     "date": "Apr 2021 - Sep 2021",
     "technologies": ["TypeScript", "React", "Styled Components", "REST"],
-    "description": "Accepted the challenge to produce the front end of a new HR portal project in a short timeframe. Gained valuable experience working with new tools and collaborating with talented professionals from across Brazil.",
+    "description": "A HR portal that connects companies with candidates (Mainly for accounting roles). Worked on the front-end development of the platform, focusing on creating a user-friendly interface and ensuring a smooth user experience. Collaborated with a team of developers and designers to deliver high-quality features in a fast-paced environment. Helped building from 0 to 1 the whole new platform.",
     "links": [
       {
         "label": "Connectabil",
@@ -43,7 +43,7 @@
   },
   {
     "id": "nando-moura-2021",
-    "title": "Web Developer",
+    "title": "Web Developer (Freelancer)",
     "company": "Cursos Nando Moura",
     "date": "Apr 2021 - May 2021",
     "technologies": ["TypeScript", "Next.js"],
@@ -68,7 +68,7 @@
     "company": "PLEN Robotics",
     "date": "Apr 2020 - Apr 2021",
     "technologies": ["JavaScript", "Vue.js", "Node.js", "Python", "IoT"],
-    "description": "First remote work experience — from across the globe. Grateful for the opportunity to work with a Japanese team and learn about their culture. Contributed to software development in robotics-focused projects.",
+    "description": "Worked on Plen Cube, an Alexa-like personal assistant robot with advanced features such as a camera and directional microphone. Developed the frontend web applications for the robot, which were self-hosted on the device itself, enabling users to interact through a web interface. Helped on the Plen Dashboard, a web app for managing the robot's functions and settings. Helped on Booster, a system to automatically schedule medical appointments via the PLEN Cube. Developed another system for the professor to monitor students' attendance and temperature (for COVID-19 purposes) in classrooms. Also worked on a system to sell food at kiosks.",
     "links": [
       {
         "label": "PLEN Robotics",
@@ -106,11 +106,18 @@
       "MongoDB",
       "REST"
     ],
-    "description": "First job in software development. Incredible startup experience where I worked closely with real-world problems and contributed to building solutions across both frontend and backend.",
+    "description": "Amplimed is a healthcare company that provides a platform for managing medical records and appointments. Developed the front-end and back-end of the platform, focusing on creating a user-friendly interface and ensuring data integrity. Worked on integrating various APIs and databases to enhance the functionality of the platform.",
     "links": [
       {
         "label": "Amplimed",
         "url": "https://amplimed.com.br/"
+      }
+    ],
+    "images": [
+      {
+        "src": "/amplimed/scheduler.png",
+        "alt": "Amplimed scheduler view",
+        "description": "Amplimed scheduler view from the clinic perspective."
       }
     ]
   },
@@ -120,7 +127,7 @@
     "company": "Xande Informática",
     "date": "Feb 2013 - Nov 2013",
     "technologies": ["Hardware", "Windows OS", "Customer Service"],
-    "description": "My first formal job. Provided technical support for computer hardware and software. Responsibilities included assembly, installation, troubleshooting, and direct customer service.",
+    "description": "Provided technical support for computer hardware and software. Responsibilities included assembly, installation, troubleshooting, and direct customer service.",
     "links": []
   }
 ]
