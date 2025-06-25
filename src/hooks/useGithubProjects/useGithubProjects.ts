@@ -7,7 +7,10 @@ const allowedRepos = [
   "survetric",
   "flamingo",
   "ardu-arm",
+  "GAMES-2019-T1",
+  "os_youwon_xv6",
 ];
+const allowedReposLower = allowedRepos.map((r) => r.toLowerCase());
 
 interface Project {
   name: string;
@@ -29,9 +32,9 @@ export const useGithubProjects = () => {
           "https://api.github.com/users/forbrig/repos?per_page=100&sort=updated"
         );
         const repos: Project[] = await response.json();
-        console.log("Fetched GitHub repos:", repos);
+        // console.log("Fetched GitHub repos:", repos);
         const filtered = repos
-          .filter((repo) => allowedRepos.includes(repo.name.toLowerCase()))
+          .filter((repo) => allowedReposLower.includes(repo.name.toLowerCase()))
           .map((repo) => ({
             name: repo.name,
             description: repo.description,
