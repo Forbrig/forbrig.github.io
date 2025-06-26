@@ -6,7 +6,8 @@ import {
   FaReact,
   FaNodeJs,
   FaGitAlt,
-} from "react-icons/fa";
+  FaJava,
+} from "react-icons/fa6";
 import { SiTypescript } from "react-icons/si";
 import { IconType } from "react-icons";
 
@@ -18,6 +19,7 @@ const language_icon_map: Record<string, IconType> = {
   css: FaCss3Alt,
   react: FaReact,
   nodejs: FaNodeJs,
+  java: FaJava,
 };
 
 export const getLanguageIcon = (language: string) => {

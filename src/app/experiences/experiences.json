@@ -51,12 +51,12 @@
     "links": [],
     "images": [
       {
-        "src": "/cursos-nando-moura/maestros-do-musicalismo.png",
+        "src": "/experiences/cursos-nando-moura/maestros-do-musicalismo.png",
         "alt": "Mestres do Musicalismo",
         "description": "Maestros do Musicalismo is a high-traffic landing page designed to sell online music courses."
       },
       {
-        "src": "/cursos-nando-moura/idiomas.png",
+        "src": "/experiences/cursos-nando-moura/idiomas.png",
         "alt": "Idiomas",
         "description": "Idiomas is a high-traffic landing page for selling online language courses."
       }
@@ -77,17 +77,17 @@
     ],
     "images": [
       {
-        "src": "/plen-robotics/plen-robot.png",
+        "src": "/experiences/plen-robotics/plen-robot.png",
         "alt": "Plen Robot with a termal sensor",
         "description": "Plen Robot with a termal sensor addon. Used for measuring body temperature in multiple applications."
       },
       {
-        "src": "/plen-robotics/plen-robot-iot.gif",
+        "src": "/experiences/plen-robotics/plen-robot-iot.gif",
         "alt": "Plen Robot face recognizion",
         "description": "Plen Robot using face recognizion and opening a lock with IoT."
       },
       {
-        "src": "/plen-robotics/booster.png",
+        "src": "/experiences/plen-robotics/booster.png",
         "alt": "Booster data flow",
         "description": "Booster, a system to automatically book medic consults via the PLEN Cube."
       }
@@ -115,7 +115,7 @@
     ],
     "images": [
       {
-        "src": "/amplimed/scheduler.png",
+        "src": "/experiences/amplimed/scheduler.png",
         "alt": "Amplimed scheduler view",
         "description": "Amplimed scheduler view from the clinic perspective."
       }

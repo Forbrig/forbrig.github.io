@@ -1,0 +1,51 @@
+[
+  {
+    "title": "Flamingo",
+    "description": "Testing react-three/fiber on a silly website.",
+    "repository": "https://github.com/Forbrig/flamingo",
+    "url": "https://forbrig.github.io/flamingo/",
+    "technologies": ["React", "ThreeJS", "Fiber"]
+  },
+  {
+    "title": "HaxeFlixel Game",
+    "description": "First assignment of Jogos Digitais (Tópicos especiais em computação XVIII) at UFFS.",
+    "repository": "https://github.com/Forbrig/HaxeFlixel-Game",
+    "url": "https://forbrig.github.io/HaxeFlixel-Game/",
+    "technologies": ["Haxe", "HaxeFlixel"]
+  },
+  {
+    "title": "Lottery Proccess Scheduler for the xv6 OS",
+    "description": "A lottery scheduling (process scheduler) algorithm for the xv6 OS.",
+    "repository": "https://github.com/Forbrig/os_youwon_xv6",
+    "url": "",
+    "technologies": ["OS", "C", "xv6"]
+  },
+  {
+    "title": "Krauts",
+    "description": "Interpreted language by java.",
+    "repository": "https://github.com/Forbrig/Krauts",
+    "url": "",
+    "technologies": ["Java"]
+  },
+  {
+    "title": "Survetric",
+    "description": "Testing peer to peer programming using python and pygame.",
+    "repository": "https://github.com/Forbrig/survetric",
+    "url": "",
+    "technologies": ["Python", "PyGame", "Peer-to-Peer"]
+  },
+  {
+    "title": "Cart Pole",
+    "description": "Solving CartPole problem from the OpenAI Gym toolkit using AI.",
+    "repository": "https://github.com/Forbrig/cart-pole",
+    "url": "",
+    "technologies": ["Python", "AI", "Q-Learning", "Reinforcement Learning"]
+  },
+  {
+    "title": "Ardu-Arm",
+    "description": "ARM microcontroller experiments and code.",
+    "repository": "https://github.com/Forbrig/ardu-arm",
+    "url": "",
+    "technologies": ["C++", "Arduino", "Embedded"]
+  }
+]
