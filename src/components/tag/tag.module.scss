@@ -4,4 +4,10 @@
   border-radius: 4px;
   font-size: 0.875rem;
   color: var(--text);
+  border: 1px solid var(--background);
+  transition: scale 0.3s ease;
+
+  &:hover {
+    scale: 1.1;
+  }
 }

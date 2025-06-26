@@ -5,6 +5,7 @@ import { FaCalendar, FaExternalLinkAlt } from "react-icons/fa";
 import { Tag } from "@/components/tag";
 
 import styles from "./experience.module.scss";
+import { FaAnglesDown, FaAnglesUp } from "react-icons/fa6";
 
 export interface Experience {
   id: string;
@@ -33,10 +34,6 @@ export const Experience: FC<ExperienceProps> = ({ experience }) => {
 
   return (
     <div className={styles.experience}>
-      {/* <div className={styles.marker}>
-            <div className={styles.circle} />
-          </div> */}
-
       <div className={styles.content}>
         <div className={styles.header}>
           <div className={styles["title-and-company"]}>
@@ -58,44 +55,55 @@ export const Experience: FC<ExperienceProps> = ({ experience }) => {
 
         <p className={styles.description}>{experience.description}</p>
 
-        {experience.images && experience.images.length > 0 && (
-          <div className={styles.gallery}>
+        <div className={styles.footer}>
+          <div className={styles.technologies}>
+            {experience.technologies.map((tech, index) => (
+              <Tag key={index}>{tech}</Tag>
+            ))}
+          </div>
+
+          {experience.images && (
             <button
               className={styles["toggle-gallery"]}
               onClick={() => setShowImages((prev) => !prev)}
               type="button"
             >
-              {showImages ? "Hide Gallery" : "Show Gallery"}
+              {showImages ? (
+                <>
+                  Hide Gallery <FaAnglesUp />
+                </>
+              ) : (
+                <>
+                  Show Gallery <FaAnglesDown />
+                </>
+              )}
             </button>
+          )}
+        </div>
 
-            {showImages && (
-              <div className={styles.images}>
-                {experience.images.map((image, i) => (
-                  <div key={i} className={styles.imageContainer}>
-                    <Image
-                      key={i}
-                      loading="lazy"
-                      width={600}
-                      height={200}
-                      src={image.src}
-                      alt={image.alt ?? experience.title}
-                      className={styles.image}
-                    />
+        {experience.images && showImages && (
+          <div className={styles.gallery}>
+            <div className={styles.images}>
+              {experience.images.map((image, i) => (
+                <div key={i} className={styles.imageContainer}>
+                  <Image
+                    key={i}
+                    loading="lazy"
+                    width={600}
+                    height={200}
+                    src={image.src}
+                    alt={image.alt ?? experience.title}
+                    className={styles.image}
+                  />
 
-                    {image.description && (
-                      <p className={styles.description}>{image.description}</p>
-                    )}
-                  </div>
-                ))}
-              </div>
-            )}
+                  {image.description && (
+                    <p className={styles.description}>{image.description}</p>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         )}
-        <div className={styles.technologies}>
-          {experience.technologies.map((tech, index) => (
-            <Tag key={index}>{tech}</Tag>
-          ))}
-        </div>
       </div>
     </div>
   );
