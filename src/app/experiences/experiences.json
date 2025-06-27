@@ -67,8 +67,8 @@
     "title": "Software Developer",
     "company": "PLEN Robotics",
     "date": "Apr 2020 - Apr 2021",
-    "technologies": ["JavaScript", "Vue.js", "Node.js", "Python", "IoT"],
-    "description": "Worked on Plen Cube, an Alexa-like personal assistant robot with advanced features such as a camera and directional microphone. Developed the frontend web applications for the robot, which were self-hosted on the device itself, enabling users to interact through a web interface. Helped on the Plen Dashboard, a web app for managing the robot's functions and settings. Helped on Booster, a system to automatically schedule medical appointments via the PLEN Cube. Developed another system for the professor to monitor students' attendance and temperature (for COVID-19 purposes) in classrooms. Also worked on a system to sell food at kiosks.",
+    "technologies": ["JavaScript", "Vue.js", "Python", "Jinja", "ROS", "IoT"],
+    "description": "Plen Cube, an Alexa-like personal assistant robot, built on top of ROS, with advanced features such as a camera and directional microphone. Developed the frontend web applications for the robot, which were self-hosted on the device itself, enabling users to interact through a web interface. Helped on the Plen Dashboard, a web app for managing the robot's functions and settings. Helped on Booster, a system to automatically schedule medical appointments via the PLEN Cube. Developed another system for the professor to monitor students' attendance and temperature (for COVID-19 purposes) in classrooms. Also worked on a system to sell food at kiosks.",
     "links": [
       {
         "label": "PLEN Robotics",
