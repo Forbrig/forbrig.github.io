@@ -5,11 +5,11 @@
   padding: 1.5rem;
 
   a {
-    color: #333;
+    color: var(--text-secondary-color);
     transition: color 0.3s ease;
 
     &:hover {
-      color: #ffffff;
+      color: var(--text-color);
     }
   }
 }

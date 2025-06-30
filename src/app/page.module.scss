@@ -18,6 +18,7 @@
 
     .greeting {
       margin-bottom: 0.5rem;
+      font-family: var(--text-secondary);
 
       @media (max-width: 768px) {
         text-align: center;
@@ -29,14 +30,16 @@
       font-weight: 700;
       margin-top: 0;
       margin-bottom: 1rem;
-      animation: pulse 2s infinite alternate;
+      animation: greenGlow 2s infinite alternate;
 
-      @keyframes pulse {
+      @keyframes greenGlow {
         0% {
-          text-shadow: 0 0 8px blue, 0 0 16px blue, 0 0 32px blue;
+          filter: drop-shadow(0 0 2px var(--text-color))
+            drop-shadow(0 0 4px var(--text-color));
         }
         100% {
-          text-shadow: 0 0 24px blue, 0 0 48px blue, 0 0 96px blue;
+          filter: drop-shadow(0 0 8px var(--text-color))
+            drop-shadow(0 0 10px var(--text-color));
         }
       }
 
@@ -46,7 +49,14 @@
     }
 
     .bio {
-      line-height: 1.6;
+      line-height: 1.8;
+      color: var(--text-muted-color);
+      font-family: var(--text-secondary);
+      font-size: 1.1rem;
+      padding: 1.5rem;
+      border-radius: var(--border-radius);
+      border: 1px solid var(--border-color);
+      background: linear-gradient(90deg, var(--shadow), transparent);
 
       @media (max-width: 768px) {
         text-align: center;

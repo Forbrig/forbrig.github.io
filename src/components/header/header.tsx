@@ -1,17 +1,26 @@
 "use client";
 
 import Link from "next/link";
-import { useContext } from "react";
+import { JSX, useContext } from "react";
 import { usePathname } from "next/navigation";
-import { themeContext } from "@/context/ThemeProvider";
+import { Theme, themeContext } from "@/context/ThemeProvider";
 
-import { FaMoon, FaSun } from "react-icons/fa";
+import { FaCode, FaMoon, FaSun } from "react-icons/fa";
 
 import styles from "./header.module.scss";
+
+const themes: { name: Theme; icon: JSX.Element }[] = [
+  { name: "light", icon: <FaSun size={24} /> },
+  { name: "dark", icon: <FaMoon size={24} /> },
+  { name: "matrix", icon: <FaCode size={24} /> },
+];
 
 export const Header = () => {
   const pathname = usePathname();
   const { toggleTheme, theme } = useContext(themeContext);
+  const currentThemeIndex = themes.findIndex((t) => t.name === theme);
+  const nextThemeIndex =
+    currentThemeIndex + 1 >= themes.length ? 0 : currentThemeIndex + 1;
 
   return (
     <header className={styles.header}>
@@ -37,10 +46,12 @@ export const Header = () => {
 
       <button
         className={styles["theme-toggle"]}
-        onClick={() => toggleTheme()}
+        onClick={() => {
+          toggleTheme(themes[nextThemeIndex].name);
+        }}
         title="Toggle theme"
       >
-        {theme === "dark" ? <FaSun size={24} /> : <FaMoon size={24} />}
+        {themes[nextThemeIndex]?.icon || <FaSun size={24} />}
       </button>
     </header>
   );
