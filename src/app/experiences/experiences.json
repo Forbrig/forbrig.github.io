@@ -5,11 +5,23 @@
     "company": "Bitovi",
     "date": "Oct 2021 - Present",
     "technologies": ["TypeScript", "React", "Next.js", "GraphQL"],
-    "description": "Currently leading one of the WEB teams on the client side as a senior engineer. Worked on developing the Staffing App, an internal tool for managing company assets. Acted as a Senior Frontend Consultant for a major client, integrating into their front-end team, maintaining the website, developing new features, and focusing primarily on SDK development — a middleware used for data consumption for both WEB and APP.",
+    "description": "Worked on developing the Staffing App, an internal tool for managing company assets. Acted as a Senior Frontend Consultant for a major client, integrating into their front-end team, maintaining the website, developing new features, and focusing primarily on SDK development — a middleware used for data consumption for both WEB and APP.",
     "links": [
       {
         "label": "Bitovi",
         "url": "https://www.bitovi.com/"
+      }
+    ],
+    "images": [
+      {
+        "src": "/experiences/bitovi/kfc-diablo.png",
+        "alt": "KFC x Diablo 4",
+        "description": "KFC x Diablo 4 campaing where the user could redeem in-game weapon skins via the KFC site and app."
+      },
+      {
+        "src": "/experiences/bitovi/kfc-doordash.png",
+        "alt": "KFC - DoorDash Tracker Integration",
+        "description": "Integration of the DoorDash tracker into KFC's website."
       }
     ]
   },
