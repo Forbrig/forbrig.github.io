@@ -10,6 +10,9 @@ import styles from "./layout.module.scss";
 export const metadata: Metadata = {
   title: "Vitor Forbrig",
   description: "Vitor Forbrig - Senior Frontend Engineer",
+  icons: {
+    icon: "/cartoon-profile.png",
+  }
 };
 
 export default function RootLayout({
