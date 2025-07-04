@@ -8,6 +8,7 @@
 :root,
 .theme-dark {
   --background: #18181b;
+  --background-secondary: #18181b;
   --background-card: #27272a;
   --background-card-secondary: #444;
   --title-color: #eee;
@@ -20,7 +21,8 @@
 }
 
 .theme-matrix {
-  --background: #000000;
+  --background: transparent;
+  --background-secondary: #000000;
   --background-card: #0a0a0a;
   --background-card-secondary: #111111;
   --title-color: #00ff00;
@@ -34,6 +36,7 @@
 
 .theme-light {
   --background: #eee;
+  --background-secondary: #eee;
   --background-card: #fff;
   --background-card-secondary: #d7d7d7;
   --title-color: #18181b;

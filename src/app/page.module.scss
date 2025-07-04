@@ -56,7 +56,18 @@
       padding: 1.5rem;
       border-radius: var(--border-radius);
       border: 1px solid var(--border-color);
-      background: linear-gradient(90deg, var(--shadow), transparent);
+      background: var(--background-secondary);
+      position: relative;
+
+       &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(90deg, var(--shadow), transparent);
+      }
 
       @media (max-width: 768px) {
         text-align: center;
