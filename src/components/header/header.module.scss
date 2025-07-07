@@ -39,6 +39,7 @@
       border-radius: 4px;
       transition: background 0.15s, color 0.15s;
       letter-spacing: 0.5px;
+      border: 1px solid transparent;
       cursor: pointer;
 
       @media (max-width: 768px) {

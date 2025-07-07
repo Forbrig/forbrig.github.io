@@ -42,6 +42,13 @@ export const Header = () => {
         >
           Projects
         </Link>
+        <Link
+          href="/contact"
+          className={styles.tab}
+          data-active={pathname === "/contact"}
+        >
+          Contact
+        </Link>
       </nav>
 
       <button
