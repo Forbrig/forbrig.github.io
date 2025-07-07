@@ -15,6 +15,9 @@ export const metadata: Metadata = {
   icons: {
     icon: "/cartoon-profile.png",
   },
+  other: {
+    "google-site-verification": "PBsFeMdlBNvFg7Ydt98xQBcbCBF6ms5zWQcfXtTI2sk",
+  },
 };
 
 export default function RootLayout({
