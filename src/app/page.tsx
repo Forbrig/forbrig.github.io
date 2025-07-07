@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { ImageThemeToggle } from "@/components/imageThemeToggle";
 
 import styles from "./page.module.scss";
 
@@ -17,14 +17,7 @@ export default function HomePage() {
       </div>
 
       <div className={styles["image-wrapper"]}>
-        <Image
-          src="/cartoon-profile.png"
-          alt="Cartoon profile of Vitor Forbrig"
-          width={400}
-          height={400}
-          layout="responsive"
-          priority
-        />
+        <ImageThemeToggle />
       </div>
     </div>
   );

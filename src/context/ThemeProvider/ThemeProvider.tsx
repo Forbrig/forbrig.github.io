@@ -3,6 +3,8 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
 
 export type Theme = "dark" | "light" | "matrix";
+export const themes: Theme[] = ["light", "dark", "matrix"];
+
 interface ThemeContextProps {
   theme: "dark" | "light" | "matrix";
   toggleTheme: (theme: Theme) => void;

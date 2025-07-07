@@ -1,15 +1,11 @@
 "use client";
 
-import { useContext, useEffect, useRef, useState } from "react";
-
-import { themeContext } from "@/context/ThemeProvider";
+import { useEffect, useRef, useState } from "react";
 
 import styles from "./matrixBackground.module.scss";
 
 export const MatrixBackground = () => {
   const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-
-  const { theme } = useContext(themeContext);
 
   const cavasRef = useRef<HTMLCanvasElement | null>(null);
 
@@ -67,16 +63,13 @@ export const MatrixBackground = () => {
     };
 
     window?.addEventListener("resize", handleResize);
+    // console.log(theme);
 
     return () => {
       window?.removeEventListener("resize", handleResize);
       clearInterval(interval);
     };
-  }, [theme, currentWidth, currentHeight]);
-
-  if (theme !== "matrix") {
-    return null;
-  }
+  }, [currentWidth, currentHeight]);
 
   return (
     <div className={styles["matrix-background"]}>

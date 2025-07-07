@@ -51,7 +51,7 @@ export const Header = () => {
         }}
         title="Toggle theme"
       >
-        {themes[nextThemeIndex]?.icon || <FaSun size={24} />}
+        {themes[currentThemeIndex]?.icon || <FaSun size={24} />}
       </button>
     </header>
   );

@@ -76,14 +76,7 @@
   }
 
   .image-wrapper {
-    position: relative;
     max-width: 400px;
     min-width: 300px;
-    width: 100%;
-
-    img {
-      border-radius: 50%;
-      object-fit: cover;
-    }
   }
 }
