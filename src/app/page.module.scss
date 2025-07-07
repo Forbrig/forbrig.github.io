@@ -59,7 +59,7 @@
       background: var(--background-secondary);
       position: relative;
 
-       &::before {
+      &::before {
         content: "";
         position: absolute;
         top: 0;

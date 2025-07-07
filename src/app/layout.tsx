@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   description: "Vitor Forbrig - Senior Frontend Engineer",
   icons: {
     icon: "/cartoon-profile.png",
-  }
+  },
 };
 
 export default function RootLayout({
@@ -27,7 +27,7 @@ export default function RootLayout({
       <body className={styles.page}>
         <ThemeProvider>
           <MatrixBackground />
-          
+
           <Header />
 
           <main className={styles.main}>{children}</main>
