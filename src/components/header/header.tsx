@@ -1,11 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { JSX, useContext } from "react";
+import { JSX, useContext, useState } from "react";
 import { usePathname } from "next/navigation";
 import { Theme, themeContext } from "@/context/ThemeProvider";
 
 import { FaCode, FaMoon, FaSun } from "react-icons/fa";
+import { FaBars, FaBarsStaggered } from "react-icons/fa6";
 
 import styles from "./header.module.scss";
 
@@ -22,9 +23,40 @@ export const Header = () => {
   const nextThemeIndex =
     currentThemeIndex + 1 >= themes.length ? 0 : currentThemeIndex + 1;
 
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const onMobileMenuClick = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
   return (
     <header className={styles.header}>
-      <nav className={styles.nav}>
+      <div className={styles["header-main"]}>
+        <button onClick={onMobileMenuClick} className={styles["nav-mobile"]}>
+          {mobileMenuOpen ? (
+            <FaBarsStaggered size={24} />
+          ) : (
+            <FaBars size={24} />
+          )}
+        </button>
+
+        <Link href="/" className={styles.logo}>
+          <span className={styles["logo-text"]}>forbrig</span>
+          <span className={styles["logo-subtext"]}>.dev</span>
+        </Link>
+
+        <button
+          className={styles["theme-toggle"]}
+          onClick={() => {
+            toggleTheme(themes[nextThemeIndex].name);
+          }}
+          title="Toggle theme"
+        >
+          {themes[currentThemeIndex]?.icon || <FaSun size={24} />}
+        </button>
+      </div>
+
+      <nav className={styles.nav} data-mobile-open={mobileMenuOpen}>
         <Link href="/" className={styles.tab} data-active={pathname === "/"}>
           Home
         </Link>
@@ -50,16 +82,6 @@ export const Header = () => {
           Contact
         </Link>
       </nav>
-
-      <button
-        className={styles["theme-toggle"]}
-        onClick={() => {
-          toggleTheme(themes[nextThemeIndex].name);
-        }}
-        title="Toggle theme"
-      >
-        {themes[currentThemeIndex]?.icon || <FaSun size={24} />}
-      </button>
     </header>
   );
 };
