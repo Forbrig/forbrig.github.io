@@ -91,3 +91,26 @@ a {
 main > * {
   animation: fadeInUp 0.6s ease-in both;
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+  background: var(--background-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--shadow);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted-color);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--shadow) var(--background-secondary);
+}
