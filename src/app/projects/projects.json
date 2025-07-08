@@ -18,7 +18,7 @@
     "description": "A lottery scheduling (process scheduler) algorithm for the xv6 OS.",
     "repository": "https://github.com/Forbrig/os_youwon_xv6",
     "url": "",
-    "technologies": ["OS", "C", "xv6"]
+    "technologies": ["C", "OS", "xv6"]
   },
   {
     "title": "Krauts",
@@ -46,6 +46,6 @@
     "description": "ARM microcontroller experiments and code.",
     "repository": "https://github.com/Forbrig/ardu-arm",
     "url": "",
-    "technologies": ["C++", "Arduino", "Embedded"]
+    "technologies": ["CPP", "Arduino", "Embedded"]
   }
 ]

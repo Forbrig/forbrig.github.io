@@ -1,6 +1,6 @@
 "use client";
 
-import { getLanguageIcon } from "@/components/languageIcons";
+import { TechnologieIcon } from "@/components/technologieIcon";
 
 import { FaGithub, FaLink } from "react-icons/fa6";
 import { Tag } from "@/components/tag";
@@ -48,7 +48,7 @@ export default function ProjectsPage() {
             <div className={styles.technologies}>
               {project.technologies.map((tech) => (
                 <Tag key={tech}>
-                  {getLanguageIcon(tech.toLowerCase())}
+                  <TechnologieIcon technologie={tech} />
                   {tech}
                 </Tag>
               ))}

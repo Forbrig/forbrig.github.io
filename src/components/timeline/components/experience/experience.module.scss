@@ -8,8 +8,6 @@
   .content {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    padding: 1rem;
     border-radius: 8px;
     background-color: var(--background-card);
     color: var(--text-color);
@@ -17,85 +15,44 @@
 
     .header {
       display: flex;
-      justify-content: space-between;
-      width: 100%;
-      align-items: center;
-      gap: 1rem;
-
-      .title-and-company {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-
-        .title {
-          font-size: 1.5rem;
-          font-weight: 600;
-          color: var(--text-color);
-        }
-
-        .company {
-          color: var(--text-color);
-          font-weight: 500;
-        }
-      }
-
-      .date {
-        display: flex;
-        gap: 0.5rem;
-        color: var(--text-secondary-color);
-      }
-    }
-
-    .description {
-      font-size: 1rem;
-      color: var(--text-muted-color);
-      line-height: 1.5;
-    }
-
-    .gallery {
-      display: flex;
       flex-direction: column;
-      gap: 0.5rem;
-      margin-top: 0.5rem;
-      align-items: center;
+      width: 100%;
+      gap: 1rem;
+      padding: 1rem;
+      border-bottom: 1px solid var(--border-color);
 
-      .images {
+      .main-info {
         display: flex;
         flex-direction: column;
         width: 100%;
+        gap: 0.5rem;
 
-        gap: 1rem;
-        margin-top: 0.5rem;
-
-        background-color: var(--background-card-secondary);
-        padding: 1rem 0.5rem;
-        border-radius: var(--border-radius);
-
-        .imageContainer {
+        .title-and-date {
           display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
+          justify-content: space-between;
 
-          img {
-            max-width: 100%;
-            height: auto;
-            border-radius: var(--border-radius);
-          }
-
-          .description {
-            margin-top: 0.5rem;
-            font-size: 0.9rem;
+          .title {
+            font-size: 1.75rem;
+            font-weight: 700;
             color: var(--text-color);
           }
+
+          .date {
+            display: flex;
+            gap: 0.5rem;
+            color: var(--text-secondary-color);
+          }
+        }
+
+        .company {
+          margin-top: 0.5rem;
+
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          color: var(--text-color);
         }
       }
-    }
-
-    .footer {
-      display: flex;
-      gap: 1rem;
-      justify-content: space-between;
 
       .technologies {
         display: flex;
@@ -103,6 +60,18 @@
         gap: 0.5rem;
         margin-top: 0.5rem;
       }
+    }
+
+    .description {
+      display: flex;
+      flex-direction: column;
+      font-size: 1rem;
+      color: var(--text-muted-color);
+      line-height: 1.5;
+      padding: 1rem;
+      gap: 1rem;
+
+      align-items: center;
 
       .toggle-gallery {
         display: flex;
@@ -127,6 +96,46 @@
 
         &:hover {
           scale: 1.05;
+        }
+      }
+
+      .gallery {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+        align-items: center;
+
+        .images {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+
+          gap: 1rem;
+          margin-top: 0.5rem;
+
+          background-color: var(--background-card-secondary);
+          padding: 1rem 0.5rem;
+          border-radius: var(--border-radius);
+
+          .imageContainer {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            img {
+              max-width: 100%;
+              height: auto;
+              border-radius: var(--border-radius);
+            }
+
+            .description {
+              margin-top: 0.5rem;
+              font-size: 0.9rem;
+              color: var(--text-color);
+            }
+          }
         }
       }
     }

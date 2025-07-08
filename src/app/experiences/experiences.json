@@ -4,7 +4,14 @@
     "title": "Frontend Engineer",
     "company": "Bitovi",
     "date": "Oct 2021 - Present",
-    "technologies": ["TypeScript", "React", "Next.js", "GraphQL"],
+    "technologies": [
+      "TypeScript",
+      "React",
+      "NextJs",
+      "GraphQL",
+      "SCSS",
+      "Jest"
+    ],
     "description": "Worked on developing the Staffing App, an internal tool for managing company assets. Acted as a Senior Frontend Consultant for a major client, integrating into their front-end team, maintaining the website, developing new features, and focusing primarily on SDK development — a middleware used for data consumption for both WEB and APP.",
     "links": [
       {
@@ -58,7 +65,7 @@
     "title": "Web Developer (Freelancer)",
     "company": "Cursos Nando Moura",
     "date": "Apr 2021 - May 2021",
-    "technologies": ["TypeScript", "Next.js"],
+    "technologies": ["TypeScript", "NextJs"],
     "description": "Developed high-traffic websites for selling online courses, optimized to handle thousands of simultaneous users driven by online campaigns.",
     "links": [],
     "images": [
@@ -79,7 +86,15 @@
     "title": "Software Developer",
     "company": "PLEN Robotics",
     "date": "Apr 2020 - Apr 2021",
-    "technologies": ["JavaScript", "Vue.js", "Python", "Jinja", "ROS", "IoT"],
+    "technologies": [
+      "JavaScript",
+      "VueJs",
+      "Python",
+      "Flask",
+      "ROS",
+      "Jinja",
+      "IoT"
+    ],
     "description": "Plen Cube, an Alexa-like personal assistant robot, built on top of ROS, with advanced features such as a camera and directional microphone. Developed the frontend web applications for the robot, which were self-hosted on the device itself, enabling users to interact through a web interface. Helped on the Plen Dashboard, a web app for managing the robot's functions and settings. Helped on Booster, a system to automatically schedule medical appointments via the PLEN Cube. Developed another system for the professor to monitor students' attendance and temperature (for COVID-19 purposes) in classrooms. Also worked on a system to sell food at kiosks.",
     "links": [
       {
@@ -116,6 +131,7 @@
       "JQuery",
       "PostgreSQL",
       "MongoDB",
+      "AWS",
       "REST"
     ],
     "description": "Amplimed is a healthcare company that provides a platform for managing medical records and appointments. Developed the front-end and back-end of the platform, focusing on creating a user-friendly interface and ensuring data integrity. Worked on integrating various APIs and databases to enhance the functionality of the platform.",
