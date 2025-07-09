@@ -13,13 +13,13 @@ const description =
   "Vitor Forbrig is a Senior Frontend Engineer specializing in React, TypeScript, and modern web technologies. Explore his portfolio and projects.";
 
 export const metadata: Metadata = {
-  title: "Vitor Forbrig – Senior Frontend Engineer & JavaScript Specialist",
+  title: "Vitor Forbrig – Senior Frontend Engineer & TypeScript Specialist",
   description: description,
   icons: {
     icon: "/cartoon-profile.png",
   },
   openGraph: {
-    title: "Vitor Forbrig – Senior Frontend Engineer & JavaScript Specialist",
+    title: "Vitor Forbrig – Senior Frontend Engineer & TypeScript Specialist",
     description: description,
     url: "https://forbrig.github.io/",
     siteName: "Vitor Forbrig - Portfolio",
