@@ -17,40 +17,26 @@
       display: flex;
       flex-direction: column;
       width: 100%;
-      gap: 1rem;
       padding: 1rem;
+      gap: 1rem;
       border-bottom: 1px solid var(--border-color);
 
-      .main-info {
+      .title-and-date {
         display: flex;
-        flex-direction: column;
+        justify-content: space-between;
         width: 100%;
         gap: 0.5rem;
 
-        .title-and-date {
-          display: flex;
-          justify-content: space-between;
-
-          .title {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: var(--text-color);
-          }
-
-          .date {
-            display: flex;
-            gap: 0.5rem;
-            color: var(--text-secondary-color);
-          }
+        .title {
+          font-size: 1.75rem;
+          font-weight: 700;
+          color: var(--text-color);
         }
 
-        .company {
-          margin-top: 0.5rem;
-
+        .date {
           display: flex;
-          align-items: center;
           gap: 0.5rem;
-          color: var(--text-color);
+          color: var(--text-color-secondary);
         }
       }
 
@@ -58,7 +44,6 @@
         display: flex;
         flex-wrap: wrap;
         gap: 0.5rem;
-        margin-top: 0.5rem;
       }
     }
 
@@ -66,7 +51,7 @@
       display: flex;
       flex-direction: column;
       font-size: 1rem;
-      color: var(--text-muted-color);
+      color: var(--text-color-muted);
       line-height: 1.5;
       padding: 1rem;
       gap: 1rem;

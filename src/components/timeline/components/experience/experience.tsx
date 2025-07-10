@@ -39,24 +39,22 @@ export const Experience: FC<ExperienceProps> = ({ experience }) => {
     <div className={styles.experience}>
       <div className={styles.content}>
         <div className={styles.header}>
-          <div className={styles["main-info"]}>
-            <div className={styles["title-and-date"]}>
-              <h3 className={styles.title}>{experience.title}</h3>
-              <p className={styles.date}>
-                <FaCalendar /> {experience.date}
-              </p>
-            </div>
-
-            <a target="_blank" rel="noopener noreferrer">
-              <Button
-                buttonStyle={"ghost"}
-                disabled={!experience.links?.[0]?.url}
-              >
-                <FaBriefcase size={14} /> {experience.company}
-                {experience.links?.[0]?.url && <FaExternalLinkAlt size={14} />}
-              </Button>
-            </a>
+          <div className={styles["title-and-date"]}>
+            <h3 className={styles.title}>{experience.title}</h3>
+            <p className={styles.date}>
+              <FaCalendar /> {experience.date}
+            </p>
           </div>
+
+          <a target="_blank" rel="noopener noreferrer">
+            <Button
+              buttonStyle={"ghost"}
+              disabled={!experience.links?.[0]?.url}
+            >
+              <FaBriefcase size={14} /> {experience.company}
+              {experience.links?.[0]?.url && <FaExternalLinkAlt size={14} />}
+            </Button>
+          </a>
 
           <div className={styles.technologies}>
             {experience.technologies.map((tech, index) => (

@@ -51,7 +51,7 @@
       }
 
       .logo-subtext {
-        color: var(--text-secondary-color);
+        color: var(--text-color-secondary);
         font-weight: 400;
         font-size: 1.2rem;
       }
@@ -71,7 +71,7 @@
       }
 
       svg {
-        color: var(--text-secondary-color);
+        color: var(--text-color-secondary);
         cursor: pointer;
         transition: color 0.15s;
 
@@ -112,7 +112,7 @@
     }
 
     .tab {
-      color: var(--text-secondary-color);
+      color: var(--text-color-secondary);
       text-decoration: none;
       font-size: 1.2rem;
       padding: 0.4rem 1rem;
