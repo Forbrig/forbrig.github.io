@@ -73,32 +73,6 @@
 
       align-items: center;
 
-      .toggle-gallery {
-        display: flex;
-        width: fit-content;
-        justify-content: center;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.5rem 1rem;
-        border-radius: 4px;
-
-        font-size: 1rem;
-        cursor: pointer;
-        color: var(--text-color);
-        background-color: var(--background-card-secondary);
-        border: none;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
-        transition: scale 0.3s ease;
-        height: fit-content;
-        white-space: nowrap;
-        align-self: end;
-
-        &:hover {
-          scale: 1.05;
-        }
-      }
-
       .gallery {
         display: flex;
         flex-direction: column;

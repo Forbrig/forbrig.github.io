@@ -1,5 +1,7 @@
 "use client";
 
+import { Button } from "@/components/button";
+
 import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa6";
 import { FaRegComments } from "react-icons/fa";
 
@@ -38,24 +40,22 @@ export default function ContactPage() {
           </h2>
 
           <div className={styles.contactMethods}>
-            <a className={styles.method} href="mailto:vitorforbrig@gmail.com">
-              <FaEnvelope size={24} /> vitorforbrig@gmail.com
+            <a href="mailto:vitorforbrig@gmail.com">
+              <Button buttonStyle="secondary" full large>
+                <FaEnvelope size={24} /> vitorforbrig@gmail.com
+              </Button>
             </a>
 
-            <a
-              className={styles.method}
-              href="https://www.linkedin.com/in/forbrig/"
-              target="_blank"
-            >
-              <FaLinkedin size={24} /> linkedin.com/in/forbrig
+            <a href="https://www.linkedin.com/in/forbrig/" target="_blank">
+              <Button buttonStyle="secondary" full large>
+                <FaLinkedin size={24} /> linkedin.com/in/forbrig
+              </Button>
             </a>
 
-            <a
-              className={styles.method}
-              href="https://github.com/forbrig"
-              target="_blank"
-            >
-              <FaGithub size={24} /> github.com/forbrig
+            <a href="https://github.com/forbrig" target="_blank">
+              <Button buttonStyle="secondary" full large>
+                <FaGithub size={24} /> github.com/forbrig
+              </Button>
             </a>
           </div>
         </div>

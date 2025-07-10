@@ -2,12 +2,14 @@
 
 import { TechnologieIcon } from "@/components/technologieIcon";
 
-import { FaGithub, FaLink } from "react-icons/fa6";
+import { FaGithub } from "react-icons/fa6";
+import { FaExternalLinkAlt } from "react-icons/fa";
 import { Tag } from "@/components/tag";
 
 import projects from "./projects.json";
 
 import styles from "./projects.module.scss";
+import { Button } from "@/components/button";
 
 export default function ProjectsPage() {
   return (
@@ -25,9 +27,10 @@ export default function ProjectsPage() {
                     href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={styles.link}
                   >
-                    <FaLink size={24} />
+                    <Button>
+                      <FaExternalLinkAlt size={18} />
+                    </Button>
                   </a>
                 )}
                 {project.repository && (
@@ -35,9 +38,10 @@ export default function ProjectsPage() {
                     href={project.repository}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={styles.link}
                   >
-                    <FaGithub size={24} />
+                    <Button>
+                      <FaGithub size={18} />
+                    </Button>
                   </a>
                 )}
               </div>

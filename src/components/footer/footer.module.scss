@@ -4,13 +4,5 @@
   justify-content: center;
   gap: 1.5rem;
   padding: 1.5rem;
-
-  a {
-    color: var(--text-secondary-color);
-    transition: color 0.3s ease;
-
-    &:hover {
-      color: var(--text-color);
-    }
-  }
+  height: 100%;
 }

@@ -1,3 +1,5 @@
+import { Button } from "../button";
+
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 import styles from "./footer.module.scss";
@@ -11,7 +13,9 @@ export const Footer = () => {
         rel="noopener noreferrer"
         aria-label="GitHub"
       >
-        <FaGithub size={30} />
+        <Button buttonStyle="ghost">
+          <FaGithub size={30} />
+        </Button>
       </a>
       <a
         href="https://www.linkedin.com/in/forbrig/"
@@ -19,7 +23,9 @@ export const Footer = () => {
         rel="noopener noreferrer"
         aria-label="LinkedIn"
       >
-        <FaLinkedin size={30} />
+        <Button buttonStyle="ghost">
+          <FaLinkedin size={30} />
+        </Button>
       </a>
     </footer>
   );

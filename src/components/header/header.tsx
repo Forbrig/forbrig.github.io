@@ -4,6 +4,7 @@ import Link from "next/link";
 import { JSX, useContext, useState } from "react";
 import { usePathname } from "next/navigation";
 import { Theme, themeContext } from "@/context/ThemeProvider";
+import { Button } from "../button";
 
 import { FaCode, FaMoon, FaSun } from "react-icons/fa";
 import { FaBars, FaBarsStaggered } from "react-icons/fa6";
@@ -45,15 +46,15 @@ export const Header = () => {
           <span className={styles["logo-subtext"]}>.dev</span>
         </Link>
 
-        <button
-          className={styles["theme-toggle"]}
+        <Button
+          buttonStyle="ghost"
           onClick={() => {
             toggleTheme(themes[nextThemeIndex].name);
           }}
           title="Toggle theme"
         >
           {themes[currentThemeIndex]?.icon || <FaSun size={24} />}
-        </button>
+        </Button>
       </div>
 
       <nav className={styles.nav} data-mobile-open={mobileMenuOpen}>

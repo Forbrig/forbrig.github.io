@@ -14,8 +14,8 @@
   --background-card-secondary: #444;
   --title-color: #eee;
   --text-color: #eee;
-  --text-secondary-color: #666;
-  --text-muted-color: #cccccc;
+  --text-color-secondary: #666;
+  --text-color-muted: #cccccc;
   --border-color: #27272a;
 
   --shadow: rgba(130, 130, 130, 0.1);
@@ -28,8 +28,8 @@
   --background-card-secondary: #111111;
   --title-color: #00ff00;
   --text-color: #00ff00;
-  --text-secondary-color: #008900;
-  --text-muted-color: #cccccc;
+  --text-color-secondary: #008900;
+  --text-color-muted: #cccccc;
   --border-color: #008900;
 
   --shadow: rgba(0, 255, 0, 0.1);
@@ -42,8 +42,8 @@
   --background-card-secondary: #d7d7d7;
   --title-color: #18181b;
   --text-color: #18181b;
-  --text-secondary-color: #393939;
-  --text-muted-color: #666;
+  --text-color-secondary: #393939;
+  --text-color-muted: #666;
   --border-color: #393939;
 
   --shadow: rgba(0, 0, 0, 0.1);
@@ -103,7 +103,7 @@ main > * {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--text-muted-color);
+  background: var(--text-color-muted);
 }
 
 ::-webkit-scrollbar-corner {

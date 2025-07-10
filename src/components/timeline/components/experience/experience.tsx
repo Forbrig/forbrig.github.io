@@ -4,6 +4,7 @@ import Image from "next/image";
 import { FaCalendar, FaExternalLinkAlt } from "react-icons/fa";
 import { Tag } from "@/components/tag";
 import { TechnologieIcon } from "@/components/technologieIcon";
+import { Button } from "@/components/button";
 
 import { FaAnglesDown, FaAnglesUp, FaBriefcase } from "react-icons/fa6";
 
@@ -46,14 +47,14 @@ export const Experience: FC<ExperienceProps> = ({ experience }) => {
               </p>
             </div>
 
-            <a
-              className={styles.company}
-              href={experience.links?.[0]?.url}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaBriefcase size={14} /> {experience.company}
-              {experience.links?.[0]?.url && <FaExternalLinkAlt size={14} />}
+            <a target="_blank" rel="noopener noreferrer">
+              <Button
+                buttonStyle={"ghost"}
+                disabled={!experience.links?.[0]?.url}
+              >
+                <FaBriefcase size={14} /> {experience.company}
+                {experience.links?.[0]?.url && <FaExternalLinkAlt size={14} />}
+              </Button>
             </a>
           </div>
 
@@ -72,8 +73,7 @@ export const Experience: FC<ExperienceProps> = ({ experience }) => {
 
           <div className={styles.footer}>
             {experience.images && (
-              <button
-                className={styles["toggle-gallery"]}
+              <Button
                 onClick={() => setShowImages((prev) => !prev)}
                 type="button"
               >
@@ -86,7 +86,7 @@ export const Experience: FC<ExperienceProps> = ({ experience }) => {
                     Show Gallery <FaAnglesDown />
                   </>
                 )}
-              </button>
+              </Button>
             )}
           </div>
 

@@ -80,29 +80,6 @@
         }
       }
     }
-
-    .theme-toggle {
-      display: flex;
-
-      background: none;
-      border: none;
-
-      align-items: center;
-      cursor: pointer;
-      padding: 0.5rem;
-      border-radius: 50%;
-
-      color: var(--text-color);
-
-      @media screen and (max-width: 768px) {
-        margin-right: 5px;
-      }
-
-      &:hover {
-        transform: rotate(360deg);
-        transition: transform 2s ease-in-out;
-      }
-    }
   }
 
   .nav {
