@@ -12,4 +12,58 @@
     margin-bottom: 1rem;
     text-align: center;
   }
+
+  .cvSection {
+    width: 100%;
+    margin-bottom: 2rem;
+    
+    .cvContent {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem;
+      background: var(--background-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      gap: 2rem;
+      
+      @media (max-width: 768px) {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+      }
+      
+      .cvInfo {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        
+        @media (max-width: 768px) {
+          flex-direction: column;
+          text-align: center;
+        }
+        
+        svg {
+          color: var(--text-color);
+          flex-shrink: 0;
+        }
+        
+        div {
+          h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--title-color);
+          }
+          
+          p {
+            color: var(--text-color-muted);
+            font-size: 1rem;
+            line-height: 1.4;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
 }
