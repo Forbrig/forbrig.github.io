@@ -74,6 +74,7 @@ export const Experience: FC<ExperienceProps> = ({ experience }) => {
               <Button
                 onClick={() => setShowImages((prev) => !prev)}
                 type="button"
+                buttonStyle="secondary"
               >
                 {showImages ? (
                   <>

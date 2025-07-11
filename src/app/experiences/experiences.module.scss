@@ -13,11 +13,11 @@
     text-align: center;
   }
 
-  .cvSection {
+  .cv {
     width: 100%;
     margin-bottom: 2rem;
-    
-    .cvContent {
+
+    .content {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -26,28 +26,30 @@
       border: 1px solid var(--border-color);
       border-radius: var(--border-radius);
       gap: 2rem;
-      
+
       @media (max-width: 768px) {
         flex-direction: column;
         text-align: center;
+        padding: 1rem;
+
         gap: 1.5rem;
       }
-      
-      .cvInfo {
+
+      .info {
         display: flex;
         align-items: center;
         gap: 1rem;
-        
+
         @media (max-width: 768px) {
           flex-direction: column;
           text-align: center;
         }
-        
+
         svg {
           color: var(--text-color);
           flex-shrink: 0;
         }
-        
+
         div {
           h3 {
             font-size: 1.5rem;
@@ -55,7 +57,7 @@
             margin-bottom: 0.5rem;
             color: var(--title-color);
           }
-          
+
           p {
             color: var(--text-color-muted);
             font-size: 1rem;
