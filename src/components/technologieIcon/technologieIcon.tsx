@@ -1,9 +1,8 @@
 import Image from "next/image";
-import { FC, useContext } from "react";
+import { FC } from "react";
 
-import { themeContext } from "@/context/ThemeProvider";
-
-const technologie_icon_map: Record<string, string> = {
+// https://techicons.dev/
+export const technologie_icon_map: Record<string, string> = {
   javascript: "/icons/javascript.svg",
   typescript: "/icons/typescript.svg",
   python: "/icons/python.svg",
@@ -32,23 +31,26 @@ const technologie_icon_map: Record<string, string> = {
   ros: "/icons/ros.svg",
 };
 
-export const TechnologieIcon: FC<{ technologie: string }> = ({
-  technologie,
-}) => {
-  const { theme } = useContext(themeContext);
+interface TechnologieIconProps {
+  technologie: string;
+  size?: number;
+}
 
+export const TechnologieIcon: FC<TechnologieIconProps> = ({
+  technologie,
+  size = 24,
+}) => {
   const iconPath = technologie_icon_map[technologie.toLowerCase()];
 
   return (
-    iconPath &&
-    theme !== "matrix" && (
+    iconPath && (
       <Image
         key={technologie}
         src={iconPath}
         alt={technologie}
         title={technologie}
-        width={24}
-        height={24}
+        width={size}
+        height={size}
       />
     )
   );

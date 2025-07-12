@@ -1,5 +1,7 @@
-import { FC, useState } from "react";
+import { FC, useContext, useState } from "react";
 import Image from "next/image";
+
+import { themeContext } from "@/context/ThemeProvider";
 
 import { FaCalendar, FaExternalLinkAlt } from "react-icons/fa";
 import { Tag } from "@/components/tag";
@@ -33,6 +35,8 @@ interface ExperienceProps {
 }
 
 export const Experience: FC<ExperienceProps> = ({ experience }) => {
+  const { theme } = useContext(themeContext);
+
   const [showImages, setShowImages] = useState(false);
 
   return (
@@ -59,7 +63,7 @@ export const Experience: FC<ExperienceProps> = ({ experience }) => {
           <div className={styles.technologies}>
             {experience.technologies.map((tech, index) => (
               <Tag key={index}>
-                <TechnologieIcon technologie={tech} />
+                {theme !== "matrix" && <TechnologieIcon technologie={tech} />}
                 {tech}
               </Tag>
             ))}

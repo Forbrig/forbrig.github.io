@@ -1,6 +1,6 @@
 "use client";
 
-import { Timeline } from "@/components/timeline";
+import { Timeline } from "./components/timeline";
 import { Button } from "@/components/button";
 
 import { FaDownload } from "react-icons/fa";
