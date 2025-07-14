@@ -1,34 +1,62 @@
-import Image from "next/image";
 import { FC } from "react";
 
-// https://techicons.dev/
-export const technologie_icon_map: Record<string, string> = {
-  javascript: "/icons/javascript.svg",
-  typescript: "/icons/typescript.svg",
-  python: "/icons/python.svg",
-  html: "/icons/html.svg",
-  css: "/icons/css.svg",
-  react: "/icons/react.svg",
-  nodejs: "/icons/nodejs.svg",
-  java: "/icons/java.svg",
-  scss: "/icons/scss.svg",
-  flask: "/icons/flask.svg",
-  c: "/icons/c.svg",
-  cpp: "/icons/cpp.svg",
-  threejs: "/icons/threejs.svg",
-  nextjs: "/icons/nextjs.svg",
-  arduino: "/icons/arduino.svg",
-  haxe: "/icons/haxe.svg",
-  haxeflixel: "/icons/haxeflixel.svg",
-  jest: "/icons/jest.svg",
-  graphql: "/icons/graphql.svg",
-  vuejs: "/icons/vuejs.svg",
-  jquery: "/icons/jquery.svg",
-  mongodb: "/icons/mongodb.svg",
-  aws: "/icons/aws.svg",
-  php: "/icons/php.svg",
-  postgresql: "/icons/postgresql.svg",
-  ros: "/icons/ros.svg",
+import JavascriptIcon from "@/icons/javascript.svg";
+import TypescriptIcon from "@/icons/typescript.svg";
+import PythonIcon from "@/icons/python.svg";
+import HtmlIcon from "@/icons/html.svg";
+import CssIcon from "@/icons/css.svg";
+import ReactIcon from "@/icons/react.svg";
+import NodejsIcon from "@/icons/nodejs.svg";
+import JavaIcon from "@/icons/java.svg";
+import ScssIcon from "@/icons/scss.svg";
+import FlaskIcon from "@/icons/flask.svg";
+import CIcon from "@/icons/c.svg";
+import CppIcon from "@/icons/cpp.svg";
+import ThreejsIcon from "@/icons/threejs.svg";
+import NextjsIcon from "@/icons/nextjs.svg";
+import ArduinoIcon from "@/icons/arduino.svg";
+import HaxeIcon from "@/icons/haxe.svg";
+import HaxeflixelIcon from "@/icons/haxeflixel.svg";
+import JestIcon from "@/icons/jest.svg";
+import GraphqlIcon from "@/icons/graphql.svg";
+import VuejsIcon from "@/icons/vuejs.svg";
+import JqueryIcon from "@/icons/jquery.svg";
+import MongodbIcon from "@/icons/mongodb.svg";
+import AwsIcon from "@/icons/aws.svg";
+import PhpIcon from "@/icons/php.svg";
+import PostgresqlIcon from "@/icons/postgresql.svg";
+import RosIcon from "@/icons/ros.svg";
+
+export const technologie_icon_map: Record<
+  string,
+  FC<{ width?: number; height?: number }>
+> = {
+  javascript: JavascriptIcon,
+  typescript: TypescriptIcon,
+  html: HtmlIcon,
+  css: CssIcon,
+  scss: ScssIcon,
+  vuejs: VuejsIcon,
+  react: ReactIcon,
+  nextjs: NextjsIcon,
+  nodejs: NodejsIcon,
+  threejs: ThreejsIcon,
+  jquery: JqueryIcon,
+  jest: JestIcon,
+  java: JavaIcon,
+  python: PythonIcon,
+  flask: FlaskIcon,
+  c: CIcon,
+  cpp: CppIcon,
+  haxe: HaxeIcon,
+  haxeflixel: HaxeflixelIcon,
+  graphql: GraphqlIcon,
+  mongodb: MongodbIcon,
+  postgresql: PostgresqlIcon,
+  aws: AwsIcon,
+  php: PhpIcon,
+  arduino: ArduinoIcon,
+  ros: RosIcon,
 };
 
 interface TechnologieIconProps {
@@ -40,18 +68,7 @@ export const TechnologieIcon: FC<TechnologieIconProps> = ({
   technologie,
   size = 24,
 }) => {
-  const iconPath = technologie_icon_map[technologie.toLowerCase()];
+  const IconComponent = technologie_icon_map[technologie.toLowerCase()];
 
-  return (
-    iconPath && (
-      <Image
-        key={technologie}
-        src={iconPath}
-        alt={technologie}
-        title={technologie}
-        width={size}
-        height={size}
-      />
-    )
-  );
+  return IconComponent ? <IconComponent width={size} height={size} /> : null;
 };
