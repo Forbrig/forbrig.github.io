@@ -40,7 +40,6 @@ export const ImageThemeToggle: FC = () => {
         alt="Cartoon profile of Vitor Forbrig"
         width={400}
         height={400}
-        layout="responsive"
         priority
       />
     </div>

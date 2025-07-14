@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, SVGProps } from "react";
 
 import JavascriptIcon from "@/icons/javascript.svg";
 import TypescriptIcon from "@/icons/typescript.svg";
@@ -27,10 +27,7 @@ import PhpIcon from "@/icons/php.svg";
 import PostgresqlIcon from "@/icons/postgresql.svg";
 import RosIcon from "@/icons/ros.svg";
 
-export const technologie_icon_map: Record<
-  string,
-  FC<{ width?: number; height?: number }>
-> = {
+export const technologie_icon_map: Record<string, FC<SVGProps<SVGElement>>> = {
   javascript: JavascriptIcon,
   typescript: TypescriptIcon,
   html: HtmlIcon,

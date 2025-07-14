@@ -1,17 +1,24 @@
 "use client";
 
+import { useContext } from "react";
+
 import { TechnologieIcon } from "@/components/technologieIcon";
 
-import { FaGithub } from "react-icons/fa6";
-import { FaExternalLinkAlt } from "react-icons/fa";
+import { themeContext } from "@/context/ThemeProvider";
+
 import { Tag } from "@/components/tag";
+import { Button } from "@/components/button";
+
+import { FaExternalLinkAlt } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa6";
 
 import projects from "./projects.json";
 
 import styles from "./projects.module.scss";
-import { Button } from "@/components/button";
 
 export default function ProjectsPage() {
+  const { theme } = useContext(themeContext);
+
   return (
     <div className={styles.projects}>
       <h2 className={styles.title}>Projects</h2>
@@ -52,7 +59,7 @@ export default function ProjectsPage() {
             <div className={styles.technologies}>
               {project.technologies.map((tech) => (
                 <Tag key={tech}>
-                  <TechnologieIcon technologie={tech} />
+                  {theme !== "matrix" && <TechnologieIcon technologie={tech} />}
                   {tech}
                 </Tag>
               ))}
