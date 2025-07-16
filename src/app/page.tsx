@@ -1,16 +1,16 @@
 "use client";
 
 import { ImageThemeToggle } from "@/components/imageThemeToggle";
-import {
-  technologie_icon_map,
-  TechnologieIcon,
-} from "@/components/technologieIcon";
-import { InfiniteCarousel } from "@/components/infiniteCarousel";
+// import {
+//   technologie_icon_map,
+//   TechnologieIcon,
+// } from "@/components/technologieIcon";
+// import { InfiniteCarousel } from "@/components/infiniteCarousel";
 
 import styles from "./page.module.scss";
 
 export default function HomePage() {
-  const techs = Object.keys(technologie_icon_map);
+  // const techs = Object.keys(technologie_icon_map);
 
   return (
     <div className={styles.home}>
@@ -32,13 +32,13 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className={styles.technologies}>
+      {/* <div className={styles.technologies}>
         <InfiniteCarousel
           items={techs.map((tech, i) => (
             <TechnologieIcon key={i} technologie={tech} size={40} />
           ))}
         />
-      </div>
+      </div> */}
     </div>
   );
 }
