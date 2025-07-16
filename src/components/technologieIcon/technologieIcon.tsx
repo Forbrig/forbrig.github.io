@@ -27,7 +27,10 @@ import PhpIcon from "@/icons/php.svg";
 import PostgresqlIcon from "@/icons/postgresql.svg";
 import RosIcon from "@/icons/ros.svg";
 
-export const technologie_icon_map: Record<string, FC<SVGProps<SVGElement>>> = {
+export const technologie_icon_map: Record<
+  string,
+  FC<SVGProps<SVGSVGElement>>
+> = {
   javascript: JavascriptIcon,
   typescript: TypescriptIcon,
   html: HtmlIcon,
