@@ -4,7 +4,7 @@ import { ThemeProvider } from "@/context/ThemeProvider";
 
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
-import { MatrixBackground } from "@/components/matrixBackground";
+import { ThemedBackground } from "@/components/themedBackground";
 
 import "./globals.scss";
 import styles from "./layout.module.scss";
@@ -66,7 +66,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={styles.page}>
         <ThemeProvider>
-          <MatrixBackground />
+          <ThemedBackground />
 
           <Header />
 

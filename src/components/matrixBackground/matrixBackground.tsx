@@ -17,6 +17,19 @@ export const MatrixBackground = () => {
       setCurrentWidth(window.innerWidth);
       setCurrentHeight(window.innerHeight);
     }
+
+    const handleResize = () => {
+      if (typeof window === "undefined") return;
+
+      setCurrentWidth(window.innerWidth);
+      setCurrentHeight(window.innerHeight);
+    };
+
+    window?.addEventListener("resize", handleResize);
+
+    return () => {
+      window?.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   useEffect(() => {
@@ -25,6 +38,8 @@ export const MatrixBackground = () => {
 
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
+
+    if (!currentWidth || !currentHeight) return;
 
     canvas.width = currentWidth;
     canvas.height = currentHeight;
@@ -55,18 +70,9 @@ export const MatrixBackground = () => {
 
     const interval = setInterval(draw, 30);
 
-    const handleResize = () => {
-      if (typeof window === "undefined") return;
-
-      setCurrentWidth(window.innerWidth);
-      setCurrentHeight(window.innerHeight);
-    };
-
-    window?.addEventListener("resize", handleResize);
-    // console.log(theme);
+    console.log("Matrix background initialized");
 
     return () => {
-      window?.removeEventListener("resize", handleResize);
       clearInterval(interval);
     };
   }, [currentWidth, currentHeight]);

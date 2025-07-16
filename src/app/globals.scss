@@ -8,17 +8,17 @@
 
 :root,
 .theme-dark {
-  --background: #18181b;
-  --background-secondary: #18181b;
-  --background-card: #27272a;
-  --background-card-secondary: #444;
+  --background: transparent;
+  --background-secondary: #00001b;
+  --background-card: #00001b;
+  --background-card-secondary: #060054;
   --title-color: #eee;
   --text-color: #eee;
   --text-color-secondary: #666;
   --text-color-muted: #cccccc;
-  --border-color: #27272a;
+  --border-color: #060054;
 
-  --shadow: rgba(130, 130, 130, 0.1);
+  --shadow: rgba(1, 1, 255, 0.1);
 }
 
 .theme-matrix {
