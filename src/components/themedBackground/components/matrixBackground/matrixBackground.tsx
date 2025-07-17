@@ -3,9 +3,15 @@
 import { useEffect, useRef, useState } from "react";
 
 import styles from "./matrixBackground.module.scss";
+import { ThemeControls } from "../themeControls";
 
 export const MatrixBackground = () => {
   const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  // const characters = "あいうえおかきくけこさしすせそたちつてと";
+  // https://www.w3schools.com/charsets/ref_utf_symbols.asp
+  // const characters = "★";
+
+  const [fontSize, setFontSize] = useState(16);
 
   const cavasRef = useRef<HTMLCanvasElement | null>(null);
 
@@ -44,7 +50,7 @@ export const MatrixBackground = () => {
     canvas.width = currentWidth;
     canvas.height = currentHeight;
 
-    const fontSize = 16;
+    // const fontSize = 16;
     const columns = canvas.width / fontSize;
 
     const drops: number[] = Array.from({ length: columns }, () => 1);
@@ -75,10 +81,23 @@ export const MatrixBackground = () => {
     return () => {
       clearInterval(interval);
     };
-  }, [currentWidth, currentHeight]);
+  }, [currentWidth, currentHeight, fontSize]);
 
   return (
     <div className={styles["matrix-background"]}>
+      <ThemeControls
+        props={[
+          {
+            title: "Font Size",
+            min: 10,
+            max: 30,
+            step: 1,
+            value: fontSize,
+            defaultValue: 16,
+            onChange: (value) => setFontSize(value),
+          },
+        ]}
+      />
       <canvas ref={cavasRef} />
     </div>
   );

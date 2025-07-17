@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 
 import styles from "./starsBackground.module.scss";
+import { ThemeControls } from "../themeControls";
 
 interface Star {
   orbitRadius: number;
@@ -15,12 +16,18 @@ interface Star {
   draw: () => void;
 }
 
+const DEFAULT_MAX_STARS = 1000;
+const DEFAULT_HUE = 210;
+const DEFAULT_SPEED = 10;
+const DEFAULT_MAX_STAR_RADIUS = 12;
+
 export const StarsBackground = () => {
   const cavasRef = useRef<HTMLCanvasElement | null>(null);
 
-  const maxStars = 1000;
-  const hue = 210;
-  const speed = 0.0001;
+  const [maxStars, setMaxStars] = useState(DEFAULT_MAX_STARS);
+  const [hue, setHue] = useState(DEFAULT_HUE);
+  const [speed, setSpeed] = useState(DEFAULT_SPEED);
+  const [maxStartRadius, setMaxStartRadius] = useState(DEFAULT_MAX_STAR_RADIUS);
 
   const starsRef = useRef<Star[]>([]);
 
@@ -83,11 +90,13 @@ export const StarsBackground = () => {
 
       const star = {
         orbitRadius: orbitRadius,
-        radius: random(60, orbitRadius) / 12,
+        radius: random(60, orbitRadius) / maxStartRadius,
         orbitX: currentWidth / 2,
         orbitY: currentHeight / 2,
         timePassed: random(0, maxStars),
-        speed: speed,
+        // speed: random(1, speed) / 10000,
+        // speed: random(-speed, speed) / 10000,
+        speed: speed / 10000,
         alpha: random(2, 10) / 10,
         draw: function () {
           const x = Math.sin(this.timePassed) * this.orbitRadius + this.orbitX;
@@ -149,10 +158,50 @@ export const StarsBackground = () => {
     return () => {
       clearInterval(interval);
     };
-  }, [currentWidth, currentHeight]);
+  }, [currentWidth, currentHeight, maxStars, maxStartRadius, hue, speed]);
 
   return (
     <div className={styles["stars-background"]}>
+      <ThemeControls
+        props={[
+          {
+            title: "Max Stars",
+            min: 100,
+            max: 5000,
+            step: 100,
+            value: maxStars,
+            defaultValue: DEFAULT_MAX_STARS,
+            onChange: (value) => setMaxStars(value),
+          },
+          {
+            title: "Max Star Radius",
+            min: 1,
+            max: 18,
+            step: 1,
+            value: maxStartRadius,
+            defaultValue: DEFAULT_MAX_STAR_RADIUS,
+            onChange: (value) => setMaxStartRadius(value),
+          },
+          {
+            title: "Hue",
+            min: 0,
+            max: 360,
+            step: 1,
+            value: hue,
+            defaultValue: DEFAULT_HUE,
+            onChange: (value) => setHue(value),
+          },
+          {
+            title: "Speed",
+            min: -100,
+            max: 100,
+            step: 1,
+            value: speed, // Convert to a more manageable range for the slider
+            defaultValue: DEFAULT_SPEED,
+            onChange: (value) => setSpeed(value), // Convert back to original value
+          },
+        ]}
+      />
       <canvas ref={cavasRef} />
     </div>
   );

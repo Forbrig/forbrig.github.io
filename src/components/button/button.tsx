@@ -9,6 +9,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   buttonStyle?: ButtonStyles;
   full?: boolean;
   large?: boolean;
+  rounded?: boolean;
 }
 
 export const Button: FC<ButtonProps> = ({
@@ -16,6 +17,7 @@ export const Button: FC<ButtonProps> = ({
   buttonStyle = "primary",
   full = false,
   large = false,
+  rounded = false,
   ...props
 }) => {
   return (
@@ -25,6 +27,7 @@ export const Button: FC<ButtonProps> = ({
       data-style={buttonStyle}
       data-full={full}
       data-large={large}
+      data-rounded={rounded}
       {...props}
     >
       {children}
