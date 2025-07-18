@@ -2,8 +2,10 @@
 
 import { useEffect, useRef, useState } from "react";
 
-import styles from "./matrixBackground.module.scss";
 import { ThemeControls } from "../themeControls";
+import { BACKGROUND_DRAW_INTERVAL } from "@/config/const";
+
+import styles from "./matrixBackground.module.scss";
 
 export const MatrixBackground = () => {
   const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -74,9 +76,7 @@ export const MatrixBackground = () => {
       }
     };
 
-    const interval = setInterval(draw, 30);
-
-    console.log("Matrix background initialized");
+    const interval = setInterval(draw, BACKGROUND_DRAW_INTERVAL);
 
     return () => {
       clearInterval(interval);

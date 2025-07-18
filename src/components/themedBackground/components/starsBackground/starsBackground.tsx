@@ -2,8 +2,10 @@
 
 import { useEffect, useRef, useState } from "react";
 
-import styles from "./starsBackground.module.scss";
 import { ThemeControls } from "../themeControls";
+import { BACKGROUND_DRAW_INTERVAL } from "@/config/const";
+
+import styles from "./starsBackground.module.scss";
 
 interface Star {
   orbitRadius: number;
@@ -151,9 +153,7 @@ export const StarsBackground = () => {
       }
     };
 
-    console.log("Stars background initialized");
-
-    const interval = setInterval(draw, 30);
+    const interval = setInterval(draw, BACKGROUND_DRAW_INTERVAL);
 
     return () => {
       clearInterval(interval);
