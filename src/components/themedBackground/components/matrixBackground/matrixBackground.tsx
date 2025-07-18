@@ -1,13 +1,21 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import {
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 
-import { ThemeControls } from "../themeControls";
+import { themeContext } from "@/context/ThemeProvider";
 import { BACKGROUND_DRAW_INTERVAL } from "@/config/const";
 
 import styles from "./matrixBackground.module.scss";
 
 export const MatrixBackground = () => {
+  const { setThemeControls } = useContext(themeContext);
   const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
   // const characters = "あいうえおかきくけこさしすせそたちつてと";
   // https://www.w3schools.com/charsets/ref_utf_symbols.asp
@@ -19,6 +27,25 @@ export const MatrixBackground = () => {
 
   const [currentWidth, setCurrentWidth] = useState(0);
   const [currentHeight, setCurrentHeight] = useState(0);
+
+  const handleFontSizeChange = useCallback((value: number) => {
+    setFontSize(value);
+  }, []);
+
+  const memoizedThemeControls = useMemo(
+    () => [
+      {
+        title: "Font Size",
+        min: 10,
+        max: 30,
+        step: 1,
+        value: fontSize,
+        defaultValue: 16,
+        onChange: handleFontSizeChange,
+      },
+    ],
+    [fontSize, handleFontSizeChange]
+  );
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -39,6 +66,11 @@ export const MatrixBackground = () => {
       window?.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  // Separate useEffect for theme controls to prevent excessive re-renders
+  useEffect(() => {
+    setThemeControls(memoizedThemeControls);
+  }, [memoizedThemeControls, setThemeControls]);
 
   useEffect(() => {
     const canvas = cavasRef.current;
@@ -85,19 +117,6 @@ export const MatrixBackground = () => {
 
   return (
     <div className={styles["matrix-background"]}>
-      <ThemeControls
-        props={[
-          {
-            title: "Font Size",
-            min: 10,
-            max: 30,
-            step: 1,
-            value: fontSize,
-            defaultValue: 16,
-            onChange: (value) => setFontSize(value),
-          },
-        ]}
-      />
       <canvas ref={cavasRef} />
     </div>
   );

@@ -8,6 +8,7 @@ import { ThemedBackground } from "@/components/themedBackground";
 
 import "./globals.scss";
 import styles from "./layout.module.scss";
+import { ThemeControls } from "@/components/themedBackground/components/themeControls";
 
 const description =
   "Vitor Forbrig is a Senior Frontend Engineer specializing in React, TypeScript, and modern web technologies. Explore his portfolio and projects.";
@@ -67,6 +68,7 @@ export default function RootLayout({
       <body className={styles.page}>
         <ThemeProvider>
           <ThemedBackground />
+          <ThemeControls />
 
           <Header />
 

@@ -1,8 +1,16 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import {
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 
-import { ThemeControls } from "../themeControls";
+import { themeContext } from "@/context/ThemeProvider";
+
 import { BACKGROUND_DRAW_INTERVAL } from "@/config/const";
 
 import styles from "./starsBackground.module.scss";
@@ -24,6 +32,7 @@ const DEFAULT_SPEED = 10;
 const DEFAULT_MAX_STAR_RADIUS = 12;
 
 export const StarsBackground = () => {
+  const { setThemeControls } = useContext(themeContext);
   const cavasRef = useRef<HTMLCanvasElement | null>(null);
 
   const [maxStars, setMaxStars] = useState(DEFAULT_MAX_STARS);
@@ -35,6 +44,70 @@ export const StarsBackground = () => {
 
   const [currentWidth, setCurrentWidth] = useState(0);
   const [currentHeight, setCurrentHeight] = useState(0);
+
+  // Memoize the onChange callbacks to prevent unnecessary re-renders
+  const handleMaxStarsChange = useCallback(
+    (value: number) => setMaxStars(value),
+    []
+  );
+  const handleMaxStartRadiusChange = useCallback(
+    (value: number) => setMaxStartRadius(value),
+    []
+  );
+  const handleHueChange = useCallback((value: number) => setHue(value), []);
+  const handleSpeedChange = useCallback((value: number) => setSpeed(value), []);
+
+  // Memoize the theme controls array
+  const memoizedThemeControls = useMemo(
+    () => [
+      {
+        title: "Max Stars",
+        min: 100,
+        max: 5000,
+        step: 100,
+        value: maxStars,
+        defaultValue: DEFAULT_MAX_STARS,
+        onChange: handleMaxStarsChange,
+      },
+      {
+        title: "Max Star Radius",
+        min: 1,
+        max: 18,
+        step: 1,
+        value: maxStartRadius,
+        defaultValue: DEFAULT_MAX_STAR_RADIUS,
+        onChange: handleMaxStartRadiusChange,
+      },
+      {
+        title: "Hue",
+        min: 0,
+        max: 360,
+        step: 1,
+        value: hue,
+        defaultValue: DEFAULT_HUE,
+        onChange: handleHueChange,
+      },
+      {
+        title: "Speed",
+        min: -100,
+        max: 100,
+        step: 1,
+        value: speed,
+        defaultValue: DEFAULT_SPEED,
+        onChange: handleSpeedChange,
+      },
+    ],
+    [
+      maxStars,
+      maxStartRadius,
+      hue,
+      speed,
+      handleMaxStarsChange,
+      handleMaxStartRadiusChange,
+      handleHueChange,
+      handleSpeedChange,
+    ]
+  );
 
   const maxOrbit = (width: number, height: number) => {
     const max = Math.max(width, height),
@@ -71,6 +144,11 @@ export const StarsBackground = () => {
       window?.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  // Separate useEffect for theme controls to prevent excessive re-renders
+  useEffect(() => {
+    setThemeControls(memoizedThemeControls);
+  }, [memoizedThemeControls, setThemeControls]);
 
   useEffect(() => {
     const canvas = cavasRef.current;
@@ -162,46 +240,6 @@ export const StarsBackground = () => {
 
   return (
     <div className={styles["stars-background"]}>
-      <ThemeControls
-        props={[
-          {
-            title: "Max Stars",
-            min: 100,
-            max: 5000,
-            step: 100,
-            value: maxStars,
-            defaultValue: DEFAULT_MAX_STARS,
-            onChange: (value) => setMaxStars(value),
-          },
-          {
-            title: "Max Star Radius",
-            min: 1,
-            max: 18,
-            step: 1,
-            value: maxStartRadius,
-            defaultValue: DEFAULT_MAX_STAR_RADIUS,
-            onChange: (value) => setMaxStartRadius(value),
-          },
-          {
-            title: "Hue",
-            min: 0,
-            max: 360,
-            step: 1,
-            value: hue,
-            defaultValue: DEFAULT_HUE,
-            onChange: (value) => setHue(value),
-          },
-          {
-            title: "Speed",
-            min: -100,
-            max: 100,
-            step: 1,
-            value: speed, // Convert to a more manageable range for the slider
-            defaultValue: DEFAULT_SPEED,
-            onChange: (value) => setSpeed(value), // Convert back to original value
-          },
-        ]}
-      />
       <canvas ref={cavasRef} />
     </div>
   );

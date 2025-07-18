@@ -1,4 +1,8 @@
-import { FC, useState } from "react";
+"use client";
+
+import { FC, useContext, useState } from "react";
+
+import { themeContext } from "@/context/ThemeProvider";
 
 import { Button } from "@/components/button";
 
@@ -6,23 +10,13 @@ import { FaCog } from "react-icons/fa";
 
 import styles from "./themeControls.module.scss";
 
-interface ThemeControlsProps {
-  props: {
-    title: string;
-    min: number;
-    max: number;
-    step: number;
-    value: number;
-    defaultValue: number;
-    onChange: (value: number) => void;
-  }[];
-}
+export const ThemeControls: FC = () => {
+  const { themeControls, theme } = useContext(themeContext);
 
-export const ThemeControls: FC<ThemeControlsProps> = ({ props }) => {
   const [showControls, setShowControls] = useState(false);
 
   return (
-    <div className="theme-controls">
+    <div data-hide={theme === "light"} className={styles["theme-controls"]}>
       <div className={styles["controls-toggle"]}>
         <Button
           onClick={() => setShowControls(!showControls)}
@@ -38,7 +32,7 @@ export const ThemeControls: FC<ThemeControlsProps> = ({ props }) => {
         <div className={styles["controls-panel"]}>
           <h3>Theme Controls</h3>
 
-          {props.map((prop, i) => (
+          {themeControls.map((prop, i) => (
             <div className={styles["control-group"]} key={i}>
               <label htmlFor={`${prop.title}-control`}>
                 {prop.title}: {prop.value}
@@ -59,7 +53,9 @@ export const ThemeControls: FC<ThemeControlsProps> = ({ props }) => {
           <div className={styles["reset-button"]}>
             <Button
               onClick={() => {
-                props.forEach((prop) => prop.onChange(prop.defaultValue));
+                themeControls.forEach((prop) =>
+                  prop.onChange(prop.defaultValue)
+                );
               }}
               large
               full
