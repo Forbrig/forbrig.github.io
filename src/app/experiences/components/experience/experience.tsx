@@ -44,7 +44,7 @@ export const Experience: FC<ExperienceProps> = ({ experience }) => {
       <div className={styles.content}>
         <div className={styles.header}>
           <div className={styles["title-and-date"]}>
-            <h3 className={styles.title}>{experience.title}</h3>
+            <h2 className={styles.title}>{experience.title}</h2>
             <p className={styles.date}>
               <FaCalendar /> {experience.date}
             </p>

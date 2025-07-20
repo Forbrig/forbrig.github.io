@@ -7,8 +7,6 @@
   width: 100%;
 
   .title {
-    font-size: 2rem;
-    font-weight: 700;
     margin-bottom: 1rem;
     text-align: center;
   }
@@ -34,11 +32,6 @@
         width: 100%;
         align-items: center;
         gap: 1rem;
-
-        .name {
-          font-size: 1.5rem;
-          font-weight: 600;
-        }
 
         .links {
           display: flex;

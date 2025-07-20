@@ -5,10 +5,10 @@ import { ThemeProvider } from "@/context/ThemeProvider";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { ThemedBackground } from "@/components/themedBackground";
+import { ThemeControls } from "@/components/themedBackground/components/themeControls";
 
 import "./globals.scss";
 import styles from "./layout.module.scss";
-import { ThemeControls } from "@/components/themedBackground/components/themeControls";
 
 const description =
   "Vitor Forbrig is a Senior Frontend Engineer specializing in React, TypeScript, and modern web technologies. Explore his portfolio and projects.";

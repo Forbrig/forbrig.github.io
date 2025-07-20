@@ -21,13 +21,13 @@ export default function ProjectsPage() {
 
   return (
     <div className={styles.projects}>
-      <h2 className={styles.title}>Projects</h2>
+      <h1 className={styles.title}>Projects</h1>
 
       <ul className={styles["projects-list"]}>
         {projects?.map((project) => (
           <li key={project.title} className={styles.project}>
             <div className={styles.header}>
-              <h3 className={styles.name}>{project.title}</h3>
+              <h2>{project.title}</h2>
               <div className={styles.links}>
                 {project.url && (
                   <a

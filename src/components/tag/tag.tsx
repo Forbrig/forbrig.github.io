@@ -9,5 +9,5 @@ type TagProps = {
 };
 
 export const Tag: FC<TagProps> = ({ children }) => {
-  return <span className={styles.tag}>{children}</span>;
+  return <div className={styles.tag}>{children}</div>;
 };

@@ -1,13 +1,37 @@
+@font-face {
+  font-family: "Share Tech Mono";
+  src: url("/fonts/Share_Tech_Mono/ShareTechMono-Regular.ttf")
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Josefin Sans";
+  src: url("/fonts/Josefin_Sans/JosefinSans-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Orbitron";
+  src: url("/fonts/Orbitron/Orbitron-VariableFont_wght.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
   --header-height: 4rem;
   --footer-height: 4rem;
   --border-radius: 0.5rem;
-  --text-primary: Arial, Helvetica, sans-serif;
-  --text-secondary: Courier New, monospace;
 }
 
 :root,
 .theme-dark {
+  --font-primary: "Orbitron", monospace;
+  --font-secondary: "Josefin Sans", monospace;
   --background: transparent;
   --background-secondary: #00001b;
   --background-card: #00001b;
@@ -22,6 +46,8 @@
 }
 
 .theme-matrix {
+  --font-primary: "Share Tech Mono", monospace;
+  --font-secondary: "Share Tech Mono", monospace;
   --background: transparent;
   --background-secondary: #000000;
   --background-card: #0a0a0a;
@@ -61,15 +87,23 @@ body {
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: var(--font-secondary);
 }
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  color: var(--title-color);
 }
 
 a {

@@ -1,7 +1,7 @@
 "use client";
 
-import { Timeline } from "./components/timeline";
 import { Button } from "@/components/button";
+import { Experience } from "./components/experience";
 
 import { FaDownload } from "react-icons/fa";
 import { FaFileArrowDown } from "react-icons/fa6";
@@ -13,14 +13,14 @@ import experiences from "./experiences.json";
 export default function ExperiencesPage() {
   return (
     <div className={styles.experiences}>
-      <h2 className={styles.title}>Experiences</h2>
+      <h1 className={styles.title}>Experiences</h1>
 
       <div className={styles.cv}>
         <div className={styles.content}>
           <div className={styles.info}>
             <FaFileArrowDown size={32} />
             <div>
-              <h3>Download My CV</h3>
+              <h2 className={styles.title}>Download My CV</h2>
               <p>
                 Get a comprehensive overview of my professional experience and
                 skills
@@ -36,7 +36,11 @@ export default function ExperiencesPage() {
         </div>
       </div>
 
-      <Timeline experiences={experiences} />
+      <div className={styles.timeline}>
+        {experiences.map((experience, index) => (
+          <Experience key={index} experience={experience} />
+        ))}
+      </div>
     </div>
   );
 }

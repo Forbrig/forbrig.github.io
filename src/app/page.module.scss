@@ -27,7 +27,7 @@
 
       .greeting {
         margin-bottom: 0.5rem;
-        font-family: var(--text-secondary);
+        font-family: var(--font-secondary);
 
         @media (max-width: 768px) {
           text-align: center;
@@ -60,7 +60,7 @@
       .bio {
         line-height: 1.8;
         color: var(--text-color-muted);
-        font-family: var(--text-secondary);
+        font-family: var(--font-secondary);
         font-size: 1.1rem;
         padding: 1.5rem;
         border-radius: var(--border-radius);
