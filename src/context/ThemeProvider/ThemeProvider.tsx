@@ -5,14 +5,16 @@ import { createContext, ReactNode, useEffect, useState } from "react";
 export type Theme = "dark" | "light" | "matrix";
 export const themes: Theme[] = ["light", "dark", "matrix"];
 
-export interface ThemeControl {
+export interface ThemeControl<T = string | number> {
+  type: "slider" | "toggle" | "radio";
   title: string;
-  min: number;
-  max: number;
-  step: number;
-  value: number;
-  defaultValue: number;
-  onChange: (value: number) => void;
+  min?: number;
+  max?: number;
+  step?: number;
+  options?: string[];
+  value: T;
+  defaultValue: T;
+  onChange: (value: T) => void;
 }
 
 interface ThemeContextProps {

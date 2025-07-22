@@ -9,22 +9,28 @@ import {
   useState,
 } from "react";
 
-import { themeContext } from "@/context/ThemeProvider";
+import { themeContext, ThemeControl } from "@/context/ThemeProvider";
 import { BACKGROUND_DRAW_INTERVAL } from "@/config/const";
 
 import styles from "./matrixBackground.module.scss";
 
+type MatrixFontStyleType = "ENGLISH" | "JAPANESE" | "SYMBOLS";
+
+const DEFAULT_FONT_SIZE = 16;
+const DEFAULT_FONT_STYLE: MatrixFontStyleType = "ENGLISH";
+const ENGLISH_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+const JAPANESE_CHARACTERS = "あいうえおかきくけこさしすせそたちつてと";
+// https://www.w3schools.com/charsets/ref_utf_symbols.asp
+const SYMBOLS_CHARACTERS = "★☆♥♦♣♠•◘○";
+
 export const MatrixBackground = () => {
   const { setThemeControls } = useContext(themeContext);
-  const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-  // const characters = "あいうえおかきくけこさしすせそたちつてと";
-  // https://www.w3schools.com/charsets/ref_utf_symbols.asp
-  // const characters = "★";
-
-  const [fontSize, setFontSize] = useState(16);
 
   const cavasRef = useRef<HTMLCanvasElement | null>(null);
 
+  const [fontSize, setFontSize] = useState(DEFAULT_FONT_SIZE);
+  const [characters, setCharacters] = useState(ENGLISH_CHARACTERS);
+  const [fontStyle, setFontStyle] = useState<MatrixFontStyleType>("ENGLISH");
   const [currentWidth, setCurrentWidth] = useState(0);
   const [currentHeight, setCurrentHeight] = useState(0);
 
@@ -32,19 +38,42 @@ export const MatrixBackground = () => {
     setFontSize(value);
   }, []);
 
-  const memoizedThemeControls = useMemo(
+  const handleFontStyleChange = useCallback((value: string) => {
+    setFontStyle(value as MatrixFontStyleType);
+  }, []);
+
+  useEffect(() => {
+    if (fontStyle === "ENGLISH") {
+      setCharacters(ENGLISH_CHARACTERS);
+    } else if (fontStyle === "JAPANESE") {
+      setCharacters(JAPANESE_CHARACTERS);
+    } else if (fontStyle === "SYMBOLS") {
+      setCharacters(SYMBOLS_CHARACTERS);
+    }
+  }, [fontStyle]);
+
+  const memoizedThemeControls: ThemeControl[] = useMemo(
     () => [
       {
+        type: "slider",
         title: "Font Size",
         min: 10,
         max: 30,
         step: 1,
         value: fontSize,
-        defaultValue: 16,
-        onChange: handleFontSizeChange,
+        defaultValue: DEFAULT_FONT_SIZE,
+        onChange: handleFontSizeChange as (value: number | string) => void,
+      },
+      {
+        type: "radio",
+        title: "Font Style",
+        value: fontStyle,
+        options: ["ENGLISH", "JAPANESE", "SYMBOLS"],
+        defaultValue: DEFAULT_FONT_STYLE,
+        onChange: handleFontStyleChange as (value: number | string) => void,
       },
     ],
-    [fontSize, handleFontSizeChange]
+    [fontSize, fontStyle, handleFontSizeChange, handleFontStyleChange]
   );
 
   useEffect(() => {
@@ -113,7 +142,7 @@ export const MatrixBackground = () => {
     return () => {
       clearInterval(interval);
     };
-  }, [currentWidth, currentHeight, fontSize]);
+  }, [currentWidth, currentHeight, fontSize, characters]);
 
   return (
     <div className={styles["matrix-background"]}>

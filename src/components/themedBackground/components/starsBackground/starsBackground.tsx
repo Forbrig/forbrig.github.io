@@ -9,7 +9,7 @@ import {
   useState,
 } from "react";
 
-import { themeContext } from "@/context/ThemeProvider";
+import { themeContext, ThemeControl } from "@/context/ThemeProvider";
 
 import { BACKGROUND_DRAW_INTERVAL } from "@/config/const";
 
@@ -58,43 +58,49 @@ export const StarsBackground = () => {
   const handleSpeedChange = useCallback((value: number) => setSpeed(value), []);
 
   // Memoize the theme controls array
-  const memoizedThemeControls = useMemo(
+  const memoizedThemeControls: ThemeControl[] = useMemo(
     () => [
       {
+        type: "slider",
         title: "Max Stars",
         min: 100,
         max: 5000,
         step: 100,
         value: maxStars,
         defaultValue: DEFAULT_MAX_STARS,
-        onChange: handleMaxStarsChange,
+        onChange: handleMaxStarsChange as (value: number | string) => void,
       },
       {
+        type: "slider",
         title: "Max Star Radius",
         min: 1,
         max: 18,
         step: 1,
         value: maxStartRadius,
         defaultValue: DEFAULT_MAX_STAR_RADIUS,
-        onChange: handleMaxStartRadiusChange,
+        onChange: handleMaxStartRadiusChange as (
+          value: number | string
+        ) => void,
       },
       {
+        type: "slider",
         title: "Hue",
         min: 0,
         max: 360,
         step: 1,
         value: hue,
         defaultValue: DEFAULT_HUE,
-        onChange: handleHueChange,
+        onChange: handleHueChange as (value: number | string) => void,
       },
       {
+        type: "slider",
         title: "Speed",
         min: -100,
         max: 100,
         step: 1,
         value: speed,
         defaultValue: DEFAULT_SPEED,
-        onChange: handleSpeedChange,
+        onChange: handleSpeedChange as (value: number | string) => void,
       },
     ],
     [
