@@ -14,12 +14,12 @@ import { BACKGROUND_DRAW_INTERVAL } from "@/config/const";
 
 import styles from "./matrixBackground.module.scss";
 
-type MatrixFontStyleType = "ENGLISH" | "JAPANESE" | "SYMBOLS";
+type MatrixFontStyleType = "LATIN" | "HIRAGANA" | "SYMBOLS";
 
 const DEFAULT_FONT_SIZE = 16;
-const DEFAULT_FONT_STYLE: MatrixFontStyleType = "ENGLISH";
-const ENGLISH_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-const JAPANESE_CHARACTERS = "あいうえおかきくけこさしすせそたちつてと";
+const DEFAULT_FONT_STYLE: MatrixFontStyleType = "LATIN";
+const LATIN_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+const HIRAGANA_CHARACTERS = "あいうえおかきくけこさしすせそたちつてと";
 // https://www.w3schools.com/charsets/ref_utf_symbols.asp
 const SYMBOLS_CHARACTERS = "★☆♥♦♣♠•◘○";
 
@@ -29,8 +29,8 @@ export const MatrixBackground = () => {
   const cavasRef = useRef<HTMLCanvasElement | null>(null);
 
   const [fontSize, setFontSize] = useState(DEFAULT_FONT_SIZE);
-  const [characters, setCharacters] = useState(ENGLISH_CHARACTERS);
-  const [fontStyle, setFontStyle] = useState<MatrixFontStyleType>("ENGLISH");
+  const [characters, setCharacters] = useState(LATIN_CHARACTERS);
+  const [fontStyle, setFontStyle] = useState<MatrixFontStyleType>("LATIN");
   const [currentWidth, setCurrentWidth] = useState(0);
   const [currentHeight, setCurrentHeight] = useState(0);
 
@@ -43,10 +43,10 @@ export const MatrixBackground = () => {
   }, []);
 
   useEffect(() => {
-    if (fontStyle === "ENGLISH") {
-      setCharacters(ENGLISH_CHARACTERS);
-    } else if (fontStyle === "JAPANESE") {
-      setCharacters(JAPANESE_CHARACTERS);
+    if (fontStyle === "LATIN") {
+      setCharacters(LATIN_CHARACTERS);
+    } else if (fontStyle === "HIRAGANA") {
+      setCharacters(HIRAGANA_CHARACTERS);
     } else if (fontStyle === "SYMBOLS") {
       setCharacters(SYMBOLS_CHARACTERS);
     }
@@ -68,7 +68,7 @@ export const MatrixBackground = () => {
         type: "radio",
         title: "Font Style",
         value: fontStyle,
-        options: ["ENGLISH", "JAPANESE", "SYMBOLS"],
+        options: ["LATIN", "HIRAGANA", "SYMBOLS"],
         defaultValue: DEFAULT_FONT_STYLE,
         onChange: handleFontStyleChange as (value: number | string) => void,
       },

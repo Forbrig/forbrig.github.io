@@ -5,6 +5,8 @@ import { FC, useContext, useState } from "react";
 import { themeContext, ThemeControl } from "@/context/ThemeProvider";
 
 import { Button } from "@/components/button";
+import { RadioButton } from "@/components/radio";
+import { Slider } from "@/components/slider";
 
 import { FaCog } from "react-icons/fa";
 
@@ -25,40 +27,38 @@ export const ThemeControls: FC = () => {
 
         return (
           <>
-            <label htmlFor={`${prop.title}-control`}>{prop.title}:</label>
+            <label className={styles.title} htmlFor={`${prop.title}-control`}>
+              {prop.title}:
+            </label>
 
-            <div className={styles["radio-group"]}>
-              {prop.options.map((option) => (
-                <label key={option} className={styles["radio-label"]}>
-                  <input
-                    type="radio"
-                    name={prop.title}
-                    value={option}
-                    checked={prop.value === option}
-                    onChange={() => prop.onChange(option)}
-                  />
-                  {option}
-                </label>
-              ))}
-            </div>
+            <RadioButton
+              options={prop.options.map((option) => ({
+                label: option,
+                value: option,
+              }))}
+              selectedValue={prop.value}
+              onChange={prop.onChange}
+            />
           </>
         );
       case "slider":
+        if (prop.min == null || prop.max == null || prop.step == null) {
+          return null;
+        }
+
         return (
           <>
-            <label htmlFor={`${prop.title}-control`}>
+            <label className={styles.title} htmlFor={`${prop.title}-control`}>
               {prop.title}: {prop.value}
             </label>
 
-            <input
-              id={`${prop.title}-control`}
-              type="range"
+            <Slider
+              title={prop.title}
               min={prop.min}
               max={prop.max}
               step={prop.step}
-              value={prop.value}
-              onChange={(e) => prop.onChange(parseFloat(e.target.value))}
-              className={styles["slider"]}
+              value={prop.value as number}
+              onChange={prop.onChange}
             />
           </>
         );
