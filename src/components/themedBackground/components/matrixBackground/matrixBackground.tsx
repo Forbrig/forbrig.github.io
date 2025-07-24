@@ -12,8 +12,6 @@ import {
 import { themeContext, ThemeControl } from "@/context/ThemeProvider";
 import { BACKGROUND_DRAW_INTERVAL } from "@/config/const";
 
-import styles from "./matrixBackground.module.scss";
-
 type MatrixFontStyleType = "LATIN" | "HIRAGANA" | "SYMBOLS";
 
 const DEFAULT_FONT_SIZE = 16;
@@ -144,9 +142,5 @@ export const MatrixBackground = () => {
     };
   }, [currentWidth, currentHeight, fontSize, characters]);
 
-  return (
-    <div className={styles["matrix-background"]}>
-      <canvas ref={cavasRef} />
-    </div>
-  );
+  return <canvas ref={cavasRef} />;
 };

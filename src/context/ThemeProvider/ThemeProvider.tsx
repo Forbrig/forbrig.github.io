@@ -22,6 +22,8 @@ interface ThemeContextProps {
   toggleTheme: (theme: Theme) => void;
   themeControls: ThemeControl[];
   setThemeControls: (controls: ThemeControl[]) => void;
+  focusBackground: boolean;
+  setFocusBackground: (focus: boolean) => void;
 }
 
 const initialProps: ThemeContextProps = {
@@ -29,6 +31,8 @@ const initialProps: ThemeContextProps = {
   toggleTheme: () => {},
   themeControls: [],
   setThemeControls: () => {},
+  focusBackground: false,
+  setFocusBackground: () => {},
 };
 
 export const themeContext = createContext<ThemeContextProps>(initialProps);
@@ -36,6 +40,7 @@ export const themeContext = createContext<ThemeContextProps>(initialProps);
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [theme, setTheme] = useState<Theme>("matrix");
   const [themeControls, setThemeControls] = useState<ThemeControl[]>([]);
+  const [focusBackground, setFocusBackground] = useState<boolean>(false);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -53,6 +58,10 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     themeControls,
     setThemeControls: (controls) => {
       setThemeControls(controls);
+    },
+    focusBackground,
+    setFocusBackground: (focus) => {
+      setFocusBackground(focus);
     },
   };
 

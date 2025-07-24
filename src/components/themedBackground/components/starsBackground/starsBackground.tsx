@@ -13,8 +13,6 @@ import { themeContext, ThemeControl } from "@/context/ThemeProvider";
 
 import { BACKGROUND_DRAW_INTERVAL } from "@/config/const";
 
-import styles from "./starsBackground.module.scss";
-
 interface Star {
   orbitRadius: number;
   radius: number;
@@ -244,9 +242,5 @@ export const StarsBackground = () => {
     };
   }, [currentWidth, currentHeight, maxStars, maxStartRadius, hue, speed]);
 
-  return (
-    <div className={styles["stars-background"]}>
-      <canvas ref={cavasRef} />
-    </div>
-  );
+  return <canvas ref={cavasRef} />;
 };

@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, useContext, useState } from "react";
+import { FC, useContext, useEffect, useState } from "react";
 
 import { themeContext, ThemeControl } from "@/context/ThemeProvider";
 
@@ -12,10 +12,30 @@ import { FaCog } from "react-icons/fa";
 
 import styles from "./themeControls.module.scss";
 
-export const ThemeControls: FC = () => {
-  const { themeControls, theme } = useContext(themeContext);
+const HIDE_CONTROLS_DELAY = 5000; // 5 seconds
 
-  const [showControls, setShowControls] = useState(false);
+export const ThemeControls: FC = () => {
+  const { themeControls, theme, focusBackground, setFocusBackground } =
+    useContext(themeContext);
+
+  const [showControls, setShowControls] = useState(true);
+  const [showControlsPannel, setShowControlsPannel] = useState(false);
+
+  const handleToggleControls = () => {
+    setShowControlsPannel(!showControlsPannel);
+  };
+
+  const hideControlsTimeout = setTimeout(() => {
+    if (showControls) {
+      setShowControls(false);
+    }
+  }, HIDE_CONTROLS_DELAY);
+
+  useEffect(() => {
+    return () => {
+      clearTimeout(hideControlsTimeout);
+    };
+  }, [hideControlsTimeout]);
 
   const renderOption = (prop: ThemeControl) => {
     switch (prop.type) {
@@ -68,10 +88,13 @@ export const ThemeControls: FC = () => {
   };
 
   return (
-    <div data-hide={theme === "light"} className={styles["theme-controls"]}>
+    <div
+      data-hide={theme === "light" || !showControls}
+      className={styles["theme-controls"]}
+    >
       <div className={styles["controls-toggle"]}>
         <Button
-          onClick={() => setShowControls(!showControls)}
+          onClick={handleToggleControls}
           aria-label="Toggle controls"
           rounded
           large
@@ -80,33 +103,36 @@ export const ThemeControls: FC = () => {
         </Button>
       </div>
 
-      {showControls && (
-        <div className={styles["controls-panel"]}>
-          <h3>Theme Controls</h3>
+      <div className={styles["controls-panel"]} data-hide={!showControlsPannel}>
+        <h3>Theme Controls</h3>
 
-          {themeControls.map((prop, i) => {
-            return (
-              <div className={styles["control-group"]} key={i}>
-                {renderOption(prop)}
-              </div>
-            );
-          })}
+        {themeControls.map((prop, i) => {
+          return (
+            <div className={styles["control-group"]} key={i}>
+              {renderOption(prop)}
+            </div>
+          );
+        })}
 
-          <div className={styles["reset-button"]}>
-            <Button
-              onClick={() => {
-                themeControls.forEach((prop) =>
-                  prop.onChange(prop.defaultValue)
-                );
-              }}
-              large
-              full
-            >
-              Reset to Defaults
-            </Button>
-          </div>
+        <div className={styles.actions}>
+          <Button
+            onClick={() => {
+              themeControls.forEach((prop) => prop.onChange(prop.defaultValue));
+            }}
+            large
+            full
+          >
+            Reset to Defaults
+          </Button>
+          <Button
+            onClick={() => setFocusBackground(!focusBackground)}
+            large
+            full
+          >
+            Focus Background
+          </Button>
         </div>
-      )}
+      </div>
     </div>
   );
 };
