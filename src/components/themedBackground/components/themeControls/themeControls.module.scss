@@ -2,36 +2,14 @@
   position: absolute;
   z-index: 9999;
   top: calc(20px + var(--header-height));
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes fadeOut {
-    from {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    to {
-      opacity: 0;
-      transform: translateY(-10px);
-      visibility: hidden;
-    }
-  }
+  animation: fadeIn 0.5s ease-in-out;
 
   @media (max-width: 768px) {
     display: none;
   }
 
   &[data-hide="true"] {
-    animation: fadeIn 0.3s ease-in-out;
+    animation: fadeOut 0.5s ease-in-out forwards;
   }
 
   .controls-toggle {
@@ -81,5 +59,24 @@
       gap: 10px;
       margin-top: 20px;
     }
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

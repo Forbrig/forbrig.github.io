@@ -7,6 +7,22 @@
   height: 100%;
   overflow: hidden;
   background: var(--background-secondary);
+
+  &[data-focus="true"] {
+    ~ main,
+    ~ header,
+    ~ footer {
+      animation: fadeOut 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+  }
+
+  &[data-focus="false"] {
+    ~ main,
+    ~ header,
+    ~ footer {
+      animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+  }
 }
 
 @keyframes fadeOut {
@@ -30,14 +46,4 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-body:has(.themed-background[data-focus="true"])
-  > *:not([class*="themed-background"]):not([class*="theme-controls"]) {
-  animation: fadeOut 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-body:not(:has(.themed-background[data-focus="true"]))
-  > *:not([class*="themed-background"]):not([class*="theme-controls"]) {
-  animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }

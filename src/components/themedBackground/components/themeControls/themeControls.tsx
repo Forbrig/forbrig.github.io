@@ -25,17 +25,34 @@ export const ThemeControls: FC = () => {
     setShowControlsPannel(!showControlsPannel);
   };
 
-  const hideControlsTimeout = setTimeout(() => {
-    if (showControls) {
-      setShowControls(false);
-    }
-  }, HIDE_CONTROLS_DELAY);
-
   useEffect(() => {
-    return () => {
-      clearTimeout(hideControlsTimeout);
+    let hideTimeout: NodeJS.Timeout;
+
+    const resetHideTimer = () => {
+      clearTimeout(hideTimeout);
+      hideTimeout = setTimeout(() => {
+        setShowControls(false);
+        setShowControlsPannel(false);
+      }, HIDE_CONTROLS_DELAY);
     };
-  }, [hideControlsTimeout]);
+
+    const handleMouseMove = () => {
+      if (!showControls) {
+        setShowControls(true);
+      }
+      resetHideTimer();
+    };
+
+    // Start the initial timer
+    resetHideTimer();
+
+    document.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+      clearTimeout(hideTimeout);
+    };
+  }, [showControls]);
 
   const renderOption = (prop: ThemeControl) => {
     switch (prop.type) {
