@@ -16,17 +16,18 @@ import { BACKGROUND_DRAW_INTERVAL } from "@/config/const";
 interface Star {
   orbitRadius: number;
   radius: number;
-  orbitX: number;
-  orbitY: number;
+  x: number;
+  y: number;
+  z: number;
   timePassed: number;
-  speed: number;
+  rotationSpeed: number;
   alpha: number;
   draw: () => void;
 }
 
 const DEFAULT_MAX_STARS = 1000;
 const DEFAULT_HUE = 210;
-const DEFAULT_SPEED = 10;
+const DEFAULT_ROTATION_SPEED = 10;
 const DEFAULT_MAX_STAR_RADIUS = 12;
 
 export const StarsBackground = () => {
@@ -35,8 +36,9 @@ export const StarsBackground = () => {
 
   const [maxStars, setMaxStars] = useState(DEFAULT_MAX_STARS);
   const [hue, setHue] = useState(DEFAULT_HUE);
-  const [speed, setSpeed] = useState(DEFAULT_SPEED);
+  const [rotationSpeed, setRotationSpeed] = useState(DEFAULT_ROTATION_SPEED);
   const [maxStartRadius, setMaxStartRadius] = useState(DEFAULT_MAX_STAR_RADIUS);
+  // const [warpSpeed, setWarpSpeed] = useState(0.1);
 
   const starsRef = useRef<Star[]>([]);
 
@@ -53,7 +55,10 @@ export const StarsBackground = () => {
     []
   );
   const handleHueChange = useCallback((value: number) => setHue(value), []);
-  const handleSpeedChange = useCallback((value: number) => setSpeed(value), []);
+  const handleSpeedChange = useCallback(
+    (value: number) => setRotationSpeed(value),
+    []
+  );
 
   // Memoize the theme controls array
   const memoizedThemeControls: ThemeControl[] = useMemo(
@@ -92,12 +97,12 @@ export const StarsBackground = () => {
       },
       {
         type: "slider",
-        title: "Speed",
+        title: "Rotation Speed",
         min: -100,
         max: 100,
         step: 1,
-        value: speed,
-        defaultValue: DEFAULT_SPEED,
+        value: rotationSpeed,
+        defaultValue: DEFAULT_ROTATION_SPEED,
         onChange: handleSpeedChange as (value: number | string) => void,
       },
     ],
@@ -105,7 +110,7 @@ export const StarsBackground = () => {
       maxStars,
       maxStartRadius,
       hue,
-      speed,
+      rotationSpeed,
       handleMaxStarsChange,
       handleMaxStartRadiusChange,
       handleHueChange,
@@ -175,16 +180,26 @@ export const StarsBackground = () => {
       const star = {
         orbitRadius: orbitRadius,
         radius: random(60, orbitRadius) / maxStartRadius,
-        orbitX: currentWidth / 2,
-        orbitY: currentHeight / 2,
+        x: currentWidth / 2,
+        y: currentHeight / 2,
+        z: random(0, 1000), // Adding z for potential 3D effects
         timePassed: random(0, maxStars),
-        // speed: random(1, speed) / 10000,
-        // speed: random(-speed, speed) / 10000,
-        speed: speed / 10000,
+        // rotationSpeed: random(1, rotationSpeed) / 10000,
+        // rotationSpeed: random(-rotationSpeed, rotationSpeed) / 10000,
+        rotationSpeed: rotationSpeed / 10000,
         alpha: random(2, 10) / 10,
         draw: function () {
-          const x = Math.sin(this.timePassed) * this.orbitRadius + this.orbitX;
-          const y = Math.cos(this.timePassed) * this.orbitRadius + this.orbitY;
+          // this.z -= warpSpeed * 20;
+
+          // if (this.z <= 0) {
+          //   this.x = (Math.random() - 0.5) * 2000;
+          //   this.y = (Math.random() - 0.5) * 2000;
+          //   this.z = 1000;
+          // }
+
+          const x = Math.sin(this.timePassed) * this.orbitRadius + this.x;
+          const y = Math.cos(this.timePassed) * this.orbitRadius + this.y;
+
           const twinkle = random(0, 10);
 
           if (twinkle === 1 && this.alpha > 0) {
@@ -209,7 +224,7 @@ export const StarsBackground = () => {
           ctx.arc(x, y, this.radius, 0, Math.PI * 2);
           ctx.fill();
 
-          this.timePassed += this.speed;
+          this.timePassed += this.rotationSpeed;
         },
       };
 
@@ -240,7 +255,14 @@ export const StarsBackground = () => {
     return () => {
       clearInterval(interval);
     };
-  }, [currentWidth, currentHeight, maxStars, maxStartRadius, hue, speed]);
+  }, [
+    currentWidth,
+    currentHeight,
+    maxStars,
+    maxStartRadius,
+    hue,
+    rotationSpeed,
+  ]);
 
   return <canvas ref={cavasRef} />;
 };
