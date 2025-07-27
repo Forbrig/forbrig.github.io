@@ -38,7 +38,7 @@ export const StarsBackground = () => {
   const [hue, setHue] = useState(DEFAULT_HUE);
   const [rotationSpeed, setRotationSpeed] = useState(DEFAULT_ROTATION_SPEED);
   const [maxStartRadius, setMaxStartRadius] = useState(DEFAULT_MAX_STAR_RADIUS);
-  // const [warpSpeed, setWarpSpeed] = useState(0.1);
+  const [warpSpeed, setWarpSpeed] = useState(0);
 
   const starsRef = useRef<Star[]>([]);
 
@@ -57,6 +57,10 @@ export const StarsBackground = () => {
   const handleHueChange = useCallback((value: number) => setHue(value), []);
   const handleSpeedChange = useCallback(
     (value: number) => setRotationSpeed(value),
+    []
+  );
+  const handleWarpSpeedChange = useCallback(
+    (value: number) => setWarpSpeed(value),
     []
   );
 
@@ -105,16 +109,28 @@ export const StarsBackground = () => {
         defaultValue: DEFAULT_ROTATION_SPEED,
         onChange: handleSpeedChange as (value: number | string) => void,
       },
+      {
+        type: "slider",
+        title: "Warp Speed",
+        min: 0,
+        max: 50,
+        step: 1,
+        value: warpSpeed,
+        defaultValue: 0,
+        onChange: handleWarpSpeedChange as (value: number | string) => void,
+      },
     ],
     [
       maxStars,
       maxStartRadius,
       hue,
       rotationSpeed,
+      warpSpeed,
       handleMaxStarsChange,
       handleMaxStartRadiusChange,
       handleHueChange,
       handleSpeedChange,
+      handleWarpSpeedChange,
     ]
   );
 
@@ -180,40 +196,67 @@ export const StarsBackground = () => {
       const star = {
         orbitRadius: orbitRadius,
         radius: random(60, orbitRadius) / maxStartRadius,
-        x: currentWidth / 2,
-        y: currentHeight / 2,
-        z: random(0, 1000), // Adding z for potential 3D effects
+        x: (Math.random() - 0.5) * 2000, // Initial 3D position
+        y: (Math.random() - 0.5) * 2000,
+        z: random(500, 1500), // Start further back
         timePassed: random(0, maxStars),
-        // rotationSpeed: random(1, rotationSpeed) / 10000,
-        // rotationSpeed: random(-rotationSpeed, rotationSpeed) / 10000,
         rotationSpeed: rotationSpeed / 10000,
         alpha: random(2, 10) / 10,
         draw: function () {
-          // this.z -= warpSpeed * 20;
+          this.timePassed += this.rotationSpeed;
 
-          // if (this.z <= 0) {
-          //   this.x = (Math.random() - 0.5) * 2000;
-          //   this.y = (Math.random() - 0.5) * 2000;
-          //   this.z = 1000;
-          // }
-
-          const x = Math.sin(this.timePassed) * this.orbitRadius + this.x;
-          const y = Math.cos(this.timePassed) * this.orbitRadius + this.y;
-
-          const twinkle = random(0, 10);
-
-          if (twinkle === 1 && this.alpha > 0) {
-            this.alpha -= 0.05;
-          } else if (twinkle === 2 && this.alpha < 1) {
-            this.alpha += 0.05;
+          // Move star towards viewer during warp
+          if (warpSpeed > 0) {
+            this.z -= warpSpeed;
+            if (this.z <= 1) {
+              this.x = (Math.random() - 0.5) * 2000;
+              this.y = (Math.random() - 0.5) * 2000;
+              this.z = random(500, 1500);
+            }
           }
+
+          // Calculate final position (orbital or 3D based on warp speed)
+          let finalX, finalY, starSize;
+
+          if (warpSpeed > 0) {
+            // 3D projection with rotation
+            const rotatedX =
+              this.x * Math.cos(this.timePassed) -
+              this.y * Math.sin(this.timePassed);
+            const rotatedY =
+              this.x * Math.sin(this.timePassed) +
+              this.y * Math.cos(this.timePassed);
+
+            finalX = (rotatedX * 200) / this.z + currentWidth / 2;
+            finalY = (rotatedY * 200) / this.z + currentHeight / 2;
+            starSize = (this.radius * 200) / this.z;
+          } else {
+            // Original orbital animation
+            finalX =
+              Math.sin(this.timePassed) * this.orbitRadius + currentWidth / 2;
+            finalY =
+              Math.cos(this.timePassed) * this.orbitRadius + currentHeight / 2;
+            starSize = this.radius;
+          }
+
+          // Twinkle effect
+          const twinkle = random(0, 10);
+          if (twinkle === 1 && this.alpha > 0) this.alpha -= 0.05;
+          else if (twinkle === 2 && this.alpha < 1) this.alpha += 0.05;
 
           if (!ctx) return;
 
           ctx.globalAlpha = this.alpha;
 
-          // Create a radial gradient for the star
-          const gradient = ctx.createRadialGradient(x, y, 0, x, y, this.radius);
+          // Draw star with gradient
+          const gradient = ctx.createRadialGradient(
+            finalX,
+            finalY,
+            0,
+            finalX,
+            finalY,
+            starSize
+          );
           gradient.addColorStop(0, "#fff");
           gradient.addColorStop(0.1, `hsl(${hue}, 61%, 33%)`);
           gradient.addColorStop(0.25, `hsl(${hue}, 64%, 6%)`);
@@ -221,10 +264,8 @@ export const StarsBackground = () => {
 
           ctx.fillStyle = gradient;
           ctx.beginPath();
-          ctx.arc(x, y, this.radius, 0, Math.PI * 2);
+          ctx.arc(finalX, finalY, starSize, 0, Math.PI * 2);
           ctx.fill();
-
-          this.timePassed += this.rotationSpeed;
         },
       };
 
@@ -262,6 +303,7 @@ export const StarsBackground = () => {
     maxStartRadius,
     hue,
     rotationSpeed,
+    warpSpeed,
   ]);
 
   return <canvas ref={cavasRef} />;
