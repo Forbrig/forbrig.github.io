@@ -244,8 +244,6 @@ export const StarsBackground = () => {
           if (twinkle === 1 && this.alpha > 0) this.alpha -= 0.05;
           else if (twinkle === 2 && this.alpha < 1) this.alpha += 0.05;
 
-          if (!ctx) return;
-
           ctx.globalAlpha = this.alpha;
 
           // Draw star with gradient
@@ -277,24 +275,42 @@ export const StarsBackground = () => {
     }
 
     const draw = () => {
+      // Throttle to desired FPS (e.g., 60fps = 16.67ms)
+
       ctx.globalCompositeOperation = "source-over";
       ctx.globalAlpha = 0.8;
-      ctx.fillStyle = "#00001bff"; // Background
+      ctx.fillStyle = "#00001b"; // Background
       ctx.fillRect(0, 0, currentWidth, currentHeight);
 
       ctx.fillStyle = "rgba(0, 0, 0, 0.1)"; // Semi-transparent black for fading effect
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillRect(0, 0, currentWidth, currentHeight);
 
       ctx.globalCompositeOperation = "lighter";
+
       for (let i = 0, l = starsRef.current.length; i < l; i++) {
         starsRef.current[i]?.draw();
       }
     };
 
-    const interval = setInterval(draw, BACKGROUND_DRAW_INTERVAL);
+    let animationId: number;
+    let lastTime = 0;
+
+    // Use a frame-based approach to control the drawing frequency
+    // This allows for smoother animations and better performance
+    const drawFrame = (currentTime: number) => {
+      if (currentTime - lastTime >= BACKGROUND_DRAW_INTERVAL) {
+        draw();
+
+        lastTime = currentTime;
+      }
+
+      animationId = requestAnimationFrame(drawFrame);
+    };
+
+    animationId = requestAnimationFrame(drawFrame);
 
     return () => {
-      clearInterval(interval);
+      cancelAnimationFrame(animationId);
     };
   }, [
     currentWidth,

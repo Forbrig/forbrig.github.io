@@ -135,10 +135,25 @@ export const MatrixBackground = () => {
       }
     };
 
-    const interval = setInterval(draw, BACKGROUND_DRAW_INTERVAL);
+    let animationId: number;
+    let lastTime = 0;
+
+    // Use a frame-based approach to control the drawing frequency
+    // This allows for smoother animations and better performance
+    const drawFrame = (currentTime: number) => {
+      if (currentTime - lastTime >= BACKGROUND_DRAW_INTERVAL) {
+        draw();
+
+        lastTime = currentTime;
+      }
+
+      animationId = requestAnimationFrame(drawFrame);
+    };
+
+    animationId = requestAnimationFrame(drawFrame);
 
     return () => {
-      clearInterval(interval);
+      cancelAnimationFrame(animationId);
     };
   }, [currentWidth, currentHeight, fontSize, characters]);
 
