@@ -28,7 +28,7 @@ interface Star {
 const DEFAULT_MAX_STARS = 1000;
 const DEFAULT_HUE = 210;
 const DEFAULT_ROTATION_SPEED = 10;
-const DEFAULT_MAX_STAR_RADIUS = 12;
+const DEFAULT_WARP_SPEED = 0;
 
 export const StarsBackground = () => {
   const { setThemeControls } = useContext(themeContext);
@@ -37,7 +37,6 @@ export const StarsBackground = () => {
   const [maxStars, setMaxStars] = useState(DEFAULT_MAX_STARS);
   const [hue, setHue] = useState(DEFAULT_HUE);
   const [rotationSpeed, setRotationSpeed] = useState(DEFAULT_ROTATION_SPEED);
-  const [maxStartRadius, setMaxStartRadius] = useState(DEFAULT_MAX_STAR_RADIUS);
   const [warpSpeed, setWarpSpeed] = useState(0);
 
   const starsRef = useRef<Star[]>([]);
@@ -48,10 +47,6 @@ export const StarsBackground = () => {
   // Memoize the onChange callbacks to prevent unnecessary re-renders
   const handleMaxStarsChange = useCallback(
     (value: number) => setMaxStars(value),
-    []
-  );
-  const handleMaxStartRadiusChange = useCallback(
-    (value: number) => setMaxStartRadius(value),
     []
   );
   const handleHueChange = useCallback((value: number) => setHue(value), []);
@@ -76,18 +71,6 @@ export const StarsBackground = () => {
         value: maxStars,
         defaultValue: DEFAULT_MAX_STARS,
         onChange: handleMaxStarsChange as (value: number | string) => void,
-      },
-      {
-        type: "slider",
-        title: "Max Star Radius",
-        min: 1,
-        max: 18,
-        step: 1,
-        value: maxStartRadius,
-        defaultValue: DEFAULT_MAX_STAR_RADIUS,
-        onChange: handleMaxStartRadiusChange as (
-          value: number | string
-        ) => void,
       },
       {
         type: "slider",
@@ -116,18 +99,16 @@ export const StarsBackground = () => {
         max: 50,
         step: 1,
         value: warpSpeed,
-        defaultValue: 0,
+        defaultValue: DEFAULT_WARP_SPEED,
         onChange: handleWarpSpeedChange as (value: number | string) => void,
       },
     ],
     [
       maxStars,
-      maxStartRadius,
       hue,
       rotationSpeed,
       warpSpeed,
       handleMaxStarsChange,
-      handleMaxStartRadiusChange,
       handleHueChange,
       handleSpeedChange,
       handleWarpSpeedChange,
@@ -195,7 +176,7 @@ export const StarsBackground = () => {
 
       const star = {
         orbitRadius: orbitRadius,
-        radius: random(60, orbitRadius) / maxStartRadius,
+        radius: random(60, orbitRadius) / 10,
         x: (Math.random() - 0.5) * 2000, // Initial 3D position
         y: (Math.random() - 0.5) * 2000,
         z: random(500, 1500), // Start further back
@@ -312,15 +293,7 @@ export const StarsBackground = () => {
     return () => {
       cancelAnimationFrame(animationId);
     };
-  }, [
-    currentWidth,
-    currentHeight,
-    maxStars,
-    maxStartRadius,
-    hue,
-    rotationSpeed,
-    warpSpeed,
-  ]);
+  }, [currentWidth, currentHeight, maxStars, hue, rotationSpeed, warpSpeed]);
 
   return <canvas ref={cavasRef} />;
 };
