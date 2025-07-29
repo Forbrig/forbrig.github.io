@@ -6,6 +6,7 @@ import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa6";
 import { FaRegComments } from "react-icons/fa";
 
 import styles from "./contact.module.scss";
+import { Card } from "@/components/card";
 
 export default function ContactPage() {
   return (
@@ -26,39 +27,44 @@ export default function ContactPage() {
             projects, or just having a chat about technology and development.
           </p>
 
-          <div className={styles.availability}>
-            <h3>Availability</h3>
-            <p>
-              Currently open to freelance projects and full-time opportunities.
-            </p>
-          </div>
+          <Card>
+            <div className={styles.availability}>
+              <h3>Availability</h3>
+              <p>
+                Currently open to freelance projects and full-time
+                opportunities.
+              </p>
+            </div>
+          </Card>
         </div>
 
-        <div className={styles.contacts}>
-          <h2>
-            <FaRegComments /> Medias
-          </h2>
+        <Card>
+          <div className={styles.contacts}>
+            <h2>
+              <FaRegComments /> Medias
+            </h2>
 
-          <div className={styles.contactMethods}>
-            <a href="mailto:vitorforbrig@gmail.com">
-              <Button buttonStyle="secondary" full large>
-                <FaEnvelope size={24} /> vitorforbrig@gmail.com
-              </Button>
-            </a>
+            <div className={styles.contactMethods}>
+              <a href="mailto:vitorforbrig@gmail.com">
+                <Button buttonStyle="secondary" full large>
+                  <FaEnvelope size={24} /> vitorforbrig@gmail.com
+                </Button>
+              </a>
 
-            <a href="https://www.linkedin.com/in/forbrig/" target="_blank">
-              <Button buttonStyle="secondary" full large>
-                <FaLinkedin size={24} /> linkedin.com/in/forbrig
-              </Button>
-            </a>
+              <a href="https://www.linkedin.com/in/forbrig/" target="_blank">
+                <Button buttonStyle="secondary" full large>
+                  <FaLinkedin size={24} /> linkedin.com/in/forbrig
+                </Button>
+              </a>
 
-            <a href="https://github.com/forbrig" target="_blank">
-              <Button buttonStyle="secondary" full large>
-                <FaGithub size={24} /> github.com/forbrig
-              </Button>
-            </a>
+              <a href="https://github.com/forbrig" target="_blank">
+                <Button buttonStyle="secondary" full large>
+                  <FaGithub size={24} /> github.com/forbrig
+                </Button>
+              </a>
+            </div>
           </div>
-        </div>
+        </Card>
       </div>
     </div>
   );

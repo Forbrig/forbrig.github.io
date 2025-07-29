@@ -59,23 +59,16 @@
 
       .availability {
         padding: 1.5rem;
-        background: var(--background-card);
-        border: 1px solid var(--border-color);
-        border-radius: var(--border-radius);
-        position: relative;
-        overflow: hidden;
 
         h3 {
           font-size: 1.2rem;
           font-weight: 600;
           color: var(--text-color);
           margin-bottom: 0.5rem;
-          position: relative;
           z-index: 1;
         }
 
         p {
-          position: relative;
           z-index: 1;
           margin: 0;
         }
@@ -87,9 +80,6 @@
       flex-direction: column;
       gap: 1.5rem;
       padding: 2rem;
-      background: var(--background-card);
-      border: 1px solid var(--border-color);
-      border-radius: var(--border-radius);
 
       h2 {
         display: flex;

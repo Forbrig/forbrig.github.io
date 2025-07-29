@@ -2,15 +2,11 @@
   position: relative;
   display: flex;
   gap: 1rem;
-  border-radius: var(--border-radius);
-  border: 1px solid var(--border-color);
 
   .content {
     display: flex;
     flex-direction: column;
     border-radius: 8px;
-    background-color: var(--background-card);
-    color: var(--text-color);
     flex: 1;
 
     .header {
