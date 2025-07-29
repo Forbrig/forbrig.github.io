@@ -66,7 +66,7 @@ export const StarsBackground = () => {
         type: "slider",
         title: "Max Stars",
         min: 100,
-        max: 5000,
+        max: 2000,
         step: 100,
         value: maxStars,
         defaultValue: DEFAULT_MAX_STARS,
@@ -172,7 +172,7 @@ export const StarsBackground = () => {
     starsRef.current = [];
 
     const createStar = (): Star => {
-      const orbitRadius = random(0, maxOrbit(currentWidth, currentHeight));
+      const orbitRadius = random(10, maxOrbit(currentWidth, currentHeight));
 
       const star = {
         orbitRadius: orbitRadius,
@@ -217,8 +217,17 @@ export const StarsBackground = () => {
               Math.sin(this.timePassed) * this.orbitRadius + currentWidth / 2;
             finalY =
               Math.cos(this.timePassed) * this.orbitRadius + currentHeight / 2;
+
             starSize = this.radius;
           }
+
+          // Skip rendering if star is outside viewport or too small
+          if (starSize < 4) {
+            return;
+          }
+
+          // Skip rendering if too transparent
+          if (this.alpha < 0.01) return;
 
           // Twinkle effect
           const twinkle = random(0, 10);
