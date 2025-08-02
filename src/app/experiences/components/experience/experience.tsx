@@ -50,7 +50,11 @@ export const Experience: FC<ExperienceProps> = ({ experience }) => {
             </p>
           </div>
 
-          <a target="_blank" rel="noopener noreferrer">
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href={experience.links?.[0]?.url}
+          >
             <Button
               buttonStyle={"ghost"}
               disabled={!experience.links?.[0]?.url}
