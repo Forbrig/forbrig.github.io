@@ -1,14 +1,16 @@
 "use client";
 
-import { FC, useContext } from "react";
+import { FC } from "react";
 import Image from "next/image";
 
-import { themeContext, themes } from "@/context/ThemeProvider";
+import { useTheme } from "@/hooks/useTheme";
+
+import { themes } from "@/context/ThemeProvider";
 
 import styles from "./imageThemeToggle.module.scss";
 
 export const ImageThemeToggle: FC = () => {
-  const { theme, toggleTheme } = useContext(themeContext);
+  const { theme, toggleTheme } = useTheme();
 
   const currentThemeIndex = themes.findIndex((t) => t === theme);
 

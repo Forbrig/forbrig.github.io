@@ -1,15 +1,10 @@
 "use client";
 
-import {
-  useCallback,
-  useContext,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
-import { themeContext, ThemeControl } from "@/context/ThemeProvider";
+import { useTheme } from "@/hooks/useTheme";
+
+import { ThemeControl } from "@/context/ThemeProvider";
 import { BACKGROUND_DRAW_INTERVAL } from "@/config/const";
 
 type MatrixFontStyleType = "LATIN" | "HIRAGANA" | "SYMBOLS";
@@ -22,7 +17,7 @@ const HIRAGANA_CHARACTERS = "あいうえおかきくけこさしすせそたち
 const SYMBOLS_CHARACTERS = "★☆♥♦♣♠•◘○";
 
 export const MatrixBackground = () => {
-  const { setThemeControls } = useContext(themeContext);
+  const { setThemeControls } = useTheme();
 
   const cavasRef = useRef<HTMLCanvasElement | null>(null);
 

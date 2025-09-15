@@ -17,7 +17,7 @@ export interface ThemeControl<T = string | number> {
   onChange: (value: T) => void;
 }
 
-interface ThemeContextProps {
+export interface ThemeContextProps {
   theme: "dark" | "light" | "matrix";
   toggleTheme: (theme: Theme) => void;
   themeControls: ThemeControl[];

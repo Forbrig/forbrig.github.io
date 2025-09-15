@@ -1,7 +1,7 @@
-import { FC, useContext, useState } from "react";
+import { FC, useState } from "react";
 import Image from "next/image";
 
-import { themeContext } from "@/context/ThemeProvider";
+import { useTheme } from "@/hooks/useTheme";
 
 import { FaCalendar, FaExternalLinkAlt } from "react-icons/fa";
 import { Tag } from "@/components/tag";
@@ -35,7 +35,7 @@ interface ExperienceProps {
 }
 
 export const Experience: FC<ExperienceProps> = ({ experience }) => {
-  const { theme } = useContext(themeContext);
+  const { theme } = useTheme();
 
   const [showImages, setShowImages] = useState(false);
 

@@ -1,15 +1,10 @@
 "use client";
 
-import {
-  useCallback,
-  useContext,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
-import { themeContext, ThemeControl } from "@/context/ThemeProvider";
+import { useTheme } from "@/hooks/useTheme";
+
+import { ThemeControl } from "@/context/ThemeProvider";
 
 import { BACKGROUND_DRAW_INTERVAL } from "@/config/const";
 
@@ -31,7 +26,7 @@ const DEFAULT_ROTATION_SPEED = 10;
 const DEFAULT_WARP_SPEED = 0;
 
 export const StarsBackground = () => {
-  const { setThemeControls } = useContext(themeContext);
+  const { setThemeControls } = useTheme();
   const cavasRef = useRef<HTMLCanvasElement | null>(null);
 
   const [maxStars, setMaxStars] = useState(DEFAULT_MAX_STARS);

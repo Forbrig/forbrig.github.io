@@ -1,13 +1,11 @@
 "use client";
 
-import { useContext } from "react";
+import { useTheme } from "@/hooks/useTheme";
 
 import { TechnologieIcon } from "@/components/technologieIcon";
-
-import { themeContext } from "@/context/ThemeProvider";
-
 import { Tag } from "@/components/tag";
 import { Button } from "@/components/button";
+import { Card } from "@/components/card";
 
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa6";
@@ -15,10 +13,9 @@ import { FaGithub } from "react-icons/fa6";
 import projects from "./projects.json";
 
 import styles from "./projects.module.scss";
-import { Card } from "@/components/card";
 
 export default function ProjectsPage() {
-  const { theme } = useContext(themeContext);
+  const { theme } = useTheme();
 
   return (
     <div className={styles.projects}>

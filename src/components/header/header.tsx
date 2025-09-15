@@ -1,9 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { JSX, useContext, useState } from "react";
+import { JSX, useState } from "react";
 import { usePathname } from "next/navigation";
-import { Theme, themeContext } from "@/context/ThemeProvider";
+
+import { useTheme } from "@/hooks/useTheme";
+
+import { Theme } from "@/context/ThemeProvider";
 import { Button } from "../button";
 
 import { FaCode, FaMoon, FaSun } from "react-icons/fa";
@@ -19,7 +22,7 @@ const themes: { name: Theme; icon: JSX.Element }[] = [
 
 export const Header = () => {
   const pathname = usePathname();
-  const { toggleTheme, theme } = useContext(themeContext);
+  const { toggleTheme, theme } = useTheme();
   const currentThemeIndex = themes.findIndex((t) => t.name === theme);
   const nextThemeIndex =
     currentThemeIndex + 1 >= themes.length ? 0 : currentThemeIndex + 1;

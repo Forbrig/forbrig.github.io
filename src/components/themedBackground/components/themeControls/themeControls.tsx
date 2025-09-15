@@ -1,8 +1,10 @@
 "use client";
 
-import { FC, useContext, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 
-import { themeContext, ThemeControl } from "@/context/ThemeProvider";
+import { useTheme } from "@/hooks/useTheme";
+
+import { ThemeControl } from "@/context/ThemeProvider";
 
 import { Button } from "@/components/button";
 import { RadioButton } from "@/components/radio";
@@ -16,7 +18,7 @@ const HIDE_CONTROLS_DELAY = 5000; // 5 seconds
 
 export const ThemeControls: FC = () => {
   const { themeControls, theme, focusBackground, setFocusBackground } =
-    useContext(themeContext);
+    useTheme();
 
   const [showControls, setShowControls] = useState(true);
   const [showControlsPannel, setShowControlsPannel] = useState(false);
