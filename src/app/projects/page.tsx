@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import { useTheme } from "@/hooks/useTheme";
 
 import { TechnologieIcon } from "@/components/technologieIcon";
@@ -8,7 +10,7 @@ import { Button } from "@/components/button";
 import { Card } from "@/components/card";
 
 import { FaExternalLinkAlt } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa6";
+import { FaGithub, FaImage } from "react-icons/fa6";
 
 import projects from "./projects.json";
 
@@ -25,35 +27,51 @@ export default function ProjectsPage() {
         {projects?.map((project) => (
           <Card key={project.title}>
             <div className={styles.project}>
-              <div className={styles.header}>
-                <h2>{project.title}</h2>
-                <div className={styles.links}>
-                  {project.url && (
-                    <a
-                      href={project.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Button>
-                        <FaExternalLinkAlt size={18} />
-                      </Button>
-                    </a>
-                  )}
-                  {project.repository && (
-                    <a
-                      href={project.repository}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Button>
-                        <FaGithub size={18} />
-                      </Button>
-                    </a>
+              <div className={styles["project-info"]}>
+                <div className={styles["image-container"]}>
+                  {project.image ? (
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      className={styles.image}
+                      width={128}
+                      height={128}
+                    />
+                  ) : (
+                    <FaImage size={64} color="#ccc" className={styles.image} />
                   )}
                 </div>
-              </div>
 
-              <p className={styles.description}>{project.description}</p>
+                <div className={styles.header}>
+                  <h2>{project.title}</h2>
+                  <div className={styles.links}>
+                    {project.url && (
+                      <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Button>
+                          <FaExternalLinkAlt size={18} />
+                        </Button>
+                      </a>
+                    )}
+                    {project.repository && (
+                      <a
+                        href={project.repository}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Button>
+                          <FaGithub size={18} />
+                        </Button>
+                      </a>
+                    )}
+                  </div>
+                </div>
+
+                <p className={styles.description}>{project.description}</p>
+              </div>
 
               <div className={styles.technologies}>
                 {project.technologies.map((tech) => (
